@@ -31,6 +31,8 @@
     self.colorPickerViewController.view.frame = frame;
     
     [self.view addSubview:self.colorPickerViewController.view];
+    
+    [self valueDidChange:self.colorPickerViewController.slider.value];
 }
 
 - (void)viewDidUnload
@@ -51,8 +53,7 @@
 }
 
 - (void)valueDidChange:(float)value{
-        self.view.backgroundColor = [UIColor colorWithHue:value saturation:1 brightness:0.3 alpha:1.0];
-    
+    self.view.backgroundColor = [UIColor colorWithHue:value saturation:1 brightness:0.3 alpha:1.0];
     [self.colorPickerDelegate valueDidChange:value];
 }
 @end
