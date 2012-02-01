@@ -10,6 +10,4 @@
 }
 @property int number1;
 @property int number2;
-
-- (IBAction)answerEntered:(id)sender;
 @end

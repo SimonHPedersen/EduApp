@@ -38,17 +38,11 @@
         }
     }
     
-    NSLog(@"correct: %d", correct);
-    NSLog(@"total: %d", total);
-    NSLog(@"percent %f", ((float) correct) / ((float) total));
-    NSLog(@"----------------------------------");
-    
     return ((float) correct) / ((float) total);
 }
 
 -(void)updateColorsInView
 {
-    
     float percentCorrect;
     if (self.results.count == 0) {
         percentCorrect = 1.0;
@@ -56,7 +50,6 @@
         percentCorrect = [self percentCorrectOfLast:5];
     }
     
-    NSLog(@"Percent correct: %f", percentCorrect);
     float hue = self.favouriteHue + (1.0 - percentCorrect) * 0.5; 
     if (hue > 1.0) {
         hue = hue - 1.0;
@@ -116,9 +109,6 @@
     return interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight;
 }
 
-- (IBAction)answerEntered:(id)sender {
-}
-
 -(void)checkAnswer {
     int answerAsInt = answerField.text.integerValue;
     if (answerAsInt == 0 && ![answerField.text isEqualToString:@"0"]) {
@@ -126,25 +116,14 @@
     }
     ProblemAnswer *answer = [[ProblemAnswer alloc] initWithLeftHandSide:self.number1 withRightHandSide:self.number2 andAnswer:answerAsInt];
     [self.results addObject:answer];
-    
-    if (answer.isCorrect) {
-        NSLog(@"Answer was right");
-    } else {
-        NSLog(@"Answer was !right");
-    }
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    NSString* answer = answerField.text;
-    
-    NSLog(@"%@",answer);
-    
     [self checkAnswer];
     [self updateColorsInView];
     [self newProblem];
 
     answerField.text = @"";
-    
     return NO;
 }
 
@@ -153,4 +132,3 @@
     [self updateColorsInView];
 }
 @end
-
