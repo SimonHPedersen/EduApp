@@ -42,7 +42,13 @@
 {
     self.favouriteHue = 0.66666;
     
-    float percentCorrect = [self percentCorrectOfLast:5];
+    float percentCorrect;
+    if (self.results.count == 0) {
+        percentCorrect = 0.0;
+    } else {
+        percentCorrect = [self percentCorrectOfLast:5];
+    }
+    
     NSLog(@"Percent correct: %f", percentCorrect);
     float hue = self.favouriteHue + (1.0 - percentCorrect) * 0.5; 
     if (hue > 1.0) {
@@ -52,9 +58,7 @@
     self.view.backgroundColor = backgroundColor;
     
     UIColor *color = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.7];
-    number1Label.textColor = color;
-    number2Label.textColor = color;
-    operatorLabel.textColor = color;
+    problemLabel.textColor = color;
     equalsLabel.textColor = color;
     answerField.textColor = color;
     underscoreView.backgroundColor = color;
@@ -67,20 +71,18 @@
     [super viewDidLoad];
     
     self.results = [[NSMutableArray alloc] init];
-
     answerField.delegate = self;
-    
     [self newProblem];
+    [self updateColorsInView];
+    [answerField becomeFirstResponder];
 }
 
 - (void)viewDidUnload
 {
-    operatorLabel = nil;
-    number1Label = nil;
-    number2Label = nil;
     answerField = nil;
     equalsLabel = nil;
     underscoreView = nil;
+    problemLabel = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -94,8 +96,7 @@
     self.number1 = [self randomNumber];
     self.number2 = [self randomNumber];
     
-    number1Label.text = [NSString stringWithFormat:@"%d", self.number1];
-    number2Label.text = [NSString stringWithFormat:@"%d", self.number2];    
+    problemLabel.text = [NSString stringWithFormat:@"%d + %d", self.number1, self.number2];    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

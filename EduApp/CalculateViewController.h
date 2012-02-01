@@ -2,9 +2,7 @@
 
 @interface CalculateViewController : UIViewController<UITextFieldDelegate> {
     
-    __weak IBOutlet UILabel *number1Label;
-    __weak IBOutlet UILabel *number2Label;
-    __weak IBOutlet UILabel *operatorLabel;
+    __weak IBOutlet UILabel *problemLabel;
     __weak IBOutlet UITextField *answerField;
     __weak IBOutlet UILabel *equalsLabel;
     __weak IBOutlet UIView *underscoreView;
