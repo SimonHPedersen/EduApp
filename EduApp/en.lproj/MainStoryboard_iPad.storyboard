@@ -27,12 +27,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="peV-YG-Eyx">
-                                <rect key="frame" x="704" y="114" width="272" height="91"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="123"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
-                            </textField>
                             <view contentMode="scaleToFill" id="gFA-LR-qWc">
                                 <rect key="frame" x="704" y="213" width="272" height="8"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -53,13 +47,20 @@
                                     <action selector="informationTouched:" destination="2" eventType="touchUpInside" id="X6a-l8-6tG"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" id="FFQ-4v-1lu">
+                                <rect key="frame" x="704" y="102" width="272" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="123"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.26572202814343326" green="1" blue="0.25717968202708086" alpha="0.79000000000000004" colorSpace="calibratedRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="answerField" destination="peV-YG-Eyx" id="wVH-o1-5oY"/>
+                        <outlet property="answerLabel" destination="FFQ-4v-1lu" id="kp1-Us-YpN"/>
                         <outlet property="equalsLabel" destination="Tjg-yb-PTz" id="4gc-cQ-dZ6"/>
                         <outlet property="problemLabel" destination="nWW-pQ-LD9" id="Tb8-EH-riN"/>
                         <outlet property="underscoreView" destination="gFA-LR-qWc" id="nZ2-2M-FdL"/>

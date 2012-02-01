@@ -13,7 +13,6 @@
 		CE06AD3614D948BB00F44A6A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE06AD3414D948BB00F44A6A /* InfoPlist.strings */; };
 		CE06AD3814D948BB00F44A6A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE06AD3714D948BB00F44A6A /* main.m */; };
 		CE06AD3C14D948BB00F44A6A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE06AD3B14D948BB00F44A6A /* AppDelegate.m */; };
-		CE06AD3F14D948BB00F44A6A /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE06AD3D14D948BB00F44A6A /* MainStoryboard_iPhone.storyboard */; };
 		CE06AD4214D948BB00F44A6A /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE06AD4014D948BB00F44A6A /* MainStoryboard_iPad.storyboard */; };
 		CE06AD4514D948BB00F44A6A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE06AD4414D948BB00F44A6A /* ViewController.m */; };
 		CE06AD4D14D948BB00F44A6A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE06AD4C14D948BB00F44A6A /* SenTestingKit.framework */; };
@@ -29,6 +28,8 @@
 		FBAFF96314D9A10A000D2981 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF96214D9A10A000D2981 /* Question.m */; };
 		FBAFF97214D9D2C5000D2981 /* ConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF97014D9D2C5000D2981 /* ConfigurationViewController.m */; };
 		FBAFF97314D9D2C5000D2981 /* ConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBAFF97114D9D2C5000D2981 /* ConfigurationViewController.xib */; };
+		FBAFF97714D9E3E2000D2981 /* NumericalKeyboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF97514D9E3E2000D2981 /* NumericalKeyboardController.m */; };
+		FBAFF97814D9E3E2000D2981 /* NumericalKeyboardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBAFF97614D9E3E2000D2981 /* NumericalKeyboardController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +53,6 @@
 		CE06AD3914D948BB00F44A6A /* EduApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EduApp-Prefix.pch"; sourceTree = "<group>"; };
 		CE06AD3A14D948BB00F44A6A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE06AD3B14D948BB00F44A6A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CE06AD3E14D948BB00F44A6A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		CE06AD4114D948BB00F44A6A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		CE06AD4314D948BB00F44A6A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		CE06AD4414D948BB00F44A6A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -76,6 +76,9 @@
 		FBAFF96F14D9D2C5000D2981 /* ConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationViewController.h; sourceTree = "<group>"; };
 		FBAFF97014D9D2C5000D2981 /* ConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationViewController.m; sourceTree = "<group>"; };
 		FBAFF97114D9D2C5000D2981 /* ConfigurationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigurationViewController.xib; sourceTree = "<group>"; };
+		FBAFF97414D9E3E2000D2981 /* NumericalKeyboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NumericalKeyboardController.h; path = ../NumericalKeyboardController.h; sourceTree = "<group>"; };
+		FBAFF97514D9E3E2000D2981 /* NumericalKeyboardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NumericalKeyboardController.m; path = ../NumericalKeyboardController.m; sourceTree = "<group>"; };
+		FBAFF97614D9E3E2000D2981 /* NumericalKeyboardController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NumericalKeyboardController.xib; path = ../NumericalKeyboardController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,11 +138,11 @@
 		CE06AD3114D948BB00F44A6A /* EduApp */ = {
 			isa = PBXGroup;
 			children = (
+				FB7FD4E714D9E42600985528 /* InputControl */,
 				FBAFF96014D9A0C6000D2981 /* Model */,
 				FBAFF95C14D99EA6000D2981 /* Adaption */,
 				CE06AD3A14D948BB00F44A6A /* AppDelegate.h */,
 				CE06AD3B14D948BB00F44A6A /* AppDelegate.m */,
-				CE06AD3D14D948BB00F44A6A /* MainStoryboard_iPhone.storyboard */,
 				CE06AD4014D948BB00F44A6A /* MainStoryboard_iPad.storyboard */,
 				CE06AD4314D948BB00F44A6A /* ViewController.h */,
 				CE06AD4414D948BB00F44A6A /* ViewController.m */,
@@ -184,6 +187,16 @@
 				CE06AD5514D948BB00F44A6A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB7FD4E714D9E42600985528 /* InputControl */ = {
+			isa = PBXGroup;
+			children = (
+				FBAFF97414D9E3E2000D2981 /* NumericalKeyboardController.h */,
+				FBAFF97514D9E3E2000D2981 /* NumericalKeyboardController.m */,
+				FBAFF97614D9E3E2000D2981 /* NumericalKeyboardController.xib */,
+			);
+			name = InputControl;
 			sourceTree = "<group>";
 		};
 		FBAFF95C14D99EA6000D2981 /* Adaption */ = {
@@ -277,10 +290,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE06AD3614D948BB00F44A6A /* InfoPlist.strings in Resources */,
-				CE06AD3F14D948BB00F44A6A /* MainStoryboard_iPhone.storyboard in Resources */,
 				CE06AD4214D948BB00F44A6A /* MainStoryboard_iPad.storyboard in Resources */,
 				FBAFF95B14D97A0E000D2981 /* ColorPickerViewController.xib in Resources */,
 				FBAFF97314D9D2C5000D2981 /* ConfigurationViewController.xib in Resources */,
+				FBAFF97814D9E3E2000D2981 /* NumericalKeyboardController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +337,7 @@
 				FBAFF95F14D9A073000D2981 /* AdaptiveStrategy.m in Sources */,
 				FBAFF96314D9A10A000D2981 /* Question.m in Sources */,
 				FBAFF97214D9D2C5000D2981 /* ConfigurationViewController.m in Sources */,
+				FBAFF97714D9E3E2000D2981 /* NumericalKeyboardController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,14 +366,6 @@
 				CE06AD3514D948BB00F44A6A /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		CE06AD3D14D948BB00F44A6A /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE06AD3E14D948BB00F44A6A /* en */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		CE06AD4014D948BB00F44A6A /* MainStoryboard_iPad.storyboard */ = {

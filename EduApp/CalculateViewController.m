@@ -10,6 +10,9 @@
 @property (strong, nonatomic) ColorPickerViewController *colorPickerViewController;
 @property (strong, nonatomic) AdaptiveStrategy *adaptiveStrategy;
 @property (strong, nonatomic) ConfigurationViewController *configurationViewController;
+@property (strong, nonatomic) NumericalKeyboardController * numericKeyBoardController;
+
+
 -(void)newProblem;
 @end
 
@@ -20,6 +23,7 @@
 @synthesize question;
 @synthesize adaptiveStrategy;
 @synthesize configurationViewController;
+@synthesize numericKeyBoardController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,7 +55,7 @@
     UIColor *color = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.7];
     problemLabel.textColor = color;
     equalsLabel.textColor = color;
-    answerField.textColor = color;
+    answerLabel.textColor = color;
     underscoreView.backgroundColor = color;
 
     float percentCorrect;
@@ -92,21 +96,25 @@
     self.adaptiveStrategy = [[AdaptiveStrategy alloc] init];
 
     self.results = [[NSMutableArray alloc] init];
-    answerField.delegate = self;
     [self newProblem];
     [self updateColorsInView:NO];
-    [answerField becomeFirstResponder];
     self.favouriteHue = 0.66666;
 
     self.configurationViewController = [[ConfigurationViewController alloc] initWithParent:self];
+    self.numericKeyBoardController = [[NumericalKeyboardController alloc] initWithDelegate:self];
+    CGRect numericalKeyboardFrame = self.numericKeyBoardController.view.frame;
+    numericalKeyboardFrame = CGRectOffset(numericalKeyboardFrame, 0, 768 - numericalKeyboardFrame.size.height);
+    self.numericKeyBoardController.view.frame = numericalKeyboardFrame;
+    
+    [self.view addSubview:self.numericKeyBoardController.view];
 }
 
 - (void)viewDidUnload
 {
-    answerField = nil;
     equalsLabel = nil;
     underscoreView = nil;
     problemLabel = nil;
+    answerLabel = nil;
     [super viewDidUnload];
 }
 
@@ -115,22 +123,9 @@
     return interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight;
 }
 
--(void)checkAnswer {
-    int answerAsInt = answerField.text.integerValue;
-    if (answerAsInt == 0 && ![answerField.text isEqualToString:@"0"]) {
-        answerAsInt = -1;
-    }
+-(void)checkAnswer:(int)answerAsInt {
     Answer *answer = [[Answer alloc] initWithQuestion:self.question andAnswer:answerAsInt];
     [self.results addObject:answer];
-}
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self checkAnswer];
-    [self updateColorsInView:YES];
-    [self newProblem];
-
-    answerField.text = @"";
-    return NO;
 }
 
 -(void)valueDidChange:(float)value {
@@ -140,5 +135,22 @@
 
 - (IBAction)informationTouched:(id)sender {
     [self.view addSubview:self.configurationViewController.view];
+}
+
+-(void)numberPressed:(int)number{
+    answerLabel.text = [NSString stringWithFormat:@"%@%d", answerLabel.text, number];
+}
+
+-(void)submitPressed{
+    if (![answerLabel.text isEqualToString:@""])
+    {
+        int answer = answerLabel.text.integerValue;
+        
+        [self checkAnswer:answer];
+        [self updateColorsInView:YES];
+        [self newProblem];
+        
+        answerLabel.text = @"";
+    }
 }
 @end
