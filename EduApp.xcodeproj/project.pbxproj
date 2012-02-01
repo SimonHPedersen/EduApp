@@ -22,6 +22,7 @@
 		CE06AD5714D948BB00F44A6A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE06AD5514D948BB00F44A6A /* InfoPlist.strings */; };
 		CE06AD5A14D948BB00F44A6A /* EduAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE06AD5914D948BB00F44A6A /* EduAppTests.m */; };
 		CE06AD6914D94D9F00F44A6A /* CalculateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE06AD6814D94D9F00F44A6A /* CalculateViewController.m */; };
+		FBAFF95514D97301000D2981 /* ProblemAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF95414D97301000D2981 /* ProblemAnswer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		CE06AD5914D948BB00F44A6A /* EduAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EduAppTests.m; sourceTree = "<group>"; };
 		CE06AD6714D94D9F00F44A6A /* CalculateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculateViewController.h; sourceTree = "<group>"; };
 		CE06AD6814D94D9F00F44A6A /* CalculateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateViewController.m; sourceTree = "<group>"; };
+		FBAFF95314D97301000D2981 /* ProblemAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemAnswer.h; sourceTree = "<group>"; };
+		FBAFF95414D97301000D2981 /* ProblemAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProblemAnswer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 				CE06AD3214D948BB00F44A6A /* Supporting Files */,
 				CE06AD6714D94D9F00F44A6A /* CalculateViewController.h */,
 				CE06AD6814D94D9F00F44A6A /* CalculateViewController.m */,
+				FBAFF95314D97301000D2981 /* ProblemAnswer.h */,
+				FBAFF95414D97301000D2981 /* ProblemAnswer.m */,
 			);
 			path = EduApp;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				CE06AD3C14D948BB00F44A6A /* AppDelegate.m in Sources */,
 				CE06AD4514D948BB00F44A6A /* ViewController.m in Sources */,
 				CE06AD6914D94D9F00F44A6A /* CalculateViewController.m in Sources */,
+				FBAFF95514D97301000D2981 /* ProblemAnswer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +455,7 @@
 				CE06AD5F14D948BB00F44A6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE06AD6014D948BB00F44A6A /* Build configuration list for PBXNativeTarget "EduAppTests" */ = {
 			isa = XCConfigurationList;
@@ -457,6 +464,7 @@
 				CE06AD6214D948BB00F44A6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

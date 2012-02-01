@@ -11,11 +11,6 @@
 }
 @property int number1;
 @property int number2;
-@property int totalCounter;
-@property int rightCounter;
-
 
 - (IBAction)answerEntered:(id)sender;
-
-
 @end
