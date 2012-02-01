@@ -1,20 +1,22 @@
 #import "CalculateViewController.h"
-#import "ProblemAnswer.h"
+#import "Answer.h"
 #import "ColorPickerViewController.h"
+#import "AdaptiveStrategy.h"
 
 @interface CalculateViewController()
 @property float favouriteHue;
 @property (strong, nonatomic) NSMutableArray *results;
 @property (strong, nonatomic) ColorPickerViewController *colorPickerViewController;
+@property (strong, nonatomic) AdaptiveStrategy *adaptiveStrategy;
 -(void)newProblem;
 @end
 
 @implementation CalculateViewController
-@synthesize number1=_number1;
-@synthesize number2=_number2;
 @synthesize favouriteHue;
 @synthesize results;
 @synthesize colorPickerViewController;
+@synthesize question;
+@synthesize adaptiveStrategy;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +34,7 @@
     for (int i = [self.results count] - 1; i >= 0 && total < windowSize; i--)
     {
         total++;
-        ProblemAnswer *answer = [self.results objectAtIndex:i];
+        Answer *answer = [self.results objectAtIndex:i];
         if (answer.isCorrect) {
             correct++;
         }
@@ -64,12 +66,19 @@
     underscoreView.backgroundColor = color;
 }
 
+-(void)newProblem{
+    self.question = [self.adaptiveStrategy nextQuestion:self.results];
+    problemLabel.text = [self.question questionText];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    self.adaptiveStrategy = [[AdaptiveStrategy alloc] init];
+
     self.results = [[NSMutableArray alloc] init];
     answerField.delegate = self;
     [self newProblem];
@@ -93,17 +102,6 @@
     [super viewDidUnload];
 }
 
--(int)randomNumber{
-    return arc4random() % 10;
-}
-
-- (void)newProblem{
-    self.number1 = [self randomNumber];
-    self.number2 = [self randomNumber];
-    
-    problemLabel.text = [NSString stringWithFormat:@"%d + %d", self.number1, self.number2];    
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight;
@@ -114,7 +112,7 @@
     if (answerAsInt == 0 && ![answerField.text isEqualToString:@"0"]) {
         answerAsInt = -1;
     }
-    ProblemAnswer *answer = [[ProblemAnswer alloc] initWithLeftHandSide:self.number1 withRightHandSide:self.number2 andAnswer:answerAsInt];
+    Answer *answer = [[Answer alloc] initWithQuestion:self.question andAnswer:answerAsInt];
     [self.results addObject:answer];
 }
 

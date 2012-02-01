@@ -22,9 +22,11 @@
 		CE06AD5714D948BB00F44A6A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE06AD5514D948BB00F44A6A /* InfoPlist.strings */; };
 		CE06AD5A14D948BB00F44A6A /* EduAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE06AD5914D948BB00F44A6A /* EduAppTests.m */; };
 		CE06AD6914D94D9F00F44A6A /* CalculateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE06AD6814D94D9F00F44A6A /* CalculateViewController.m */; };
-		FBAFF95514D97301000D2981 /* ProblemAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF95414D97301000D2981 /* ProblemAnswer.m */; };
+		FBAFF95514D97301000D2981 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF95414D97301000D2981 /* Answer.m */; };
 		FBAFF95A14D97A0E000D2981 /* ColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF95814D97A0D000D2981 /* ColorPickerViewController.m */; };
 		FBAFF95B14D97A0E000D2981 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBAFF95914D97A0D000D2981 /* ColorPickerViewController.xib */; };
+		FBAFF95F14D9A073000D2981 /* AdaptiveStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF95E14D9A073000D2981 /* AdaptiveStrategy.m */; };
+		FBAFF96314D9A10A000D2981 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF96214D9A10A000D2981 /* Question.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,11 +62,15 @@
 		CE06AD5914D948BB00F44A6A /* EduAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EduAppTests.m; sourceTree = "<group>"; };
 		CE06AD6714D94D9F00F44A6A /* CalculateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculateViewController.h; sourceTree = "<group>"; };
 		CE06AD6814D94D9F00F44A6A /* CalculateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateViewController.m; sourceTree = "<group>"; };
-		FBAFF95314D97301000D2981 /* ProblemAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemAnswer.h; sourceTree = "<group>"; };
-		FBAFF95414D97301000D2981 /* ProblemAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProblemAnswer.m; sourceTree = "<group>"; };
+		FBAFF95314D97301000D2981 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Answer.h; sourceTree = "<group>"; };
+		FBAFF95414D97301000D2981 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
 		FBAFF95714D97A0D000D2981 /* ColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerViewController.h; sourceTree = "<group>"; };
 		FBAFF95814D97A0D000D2981 /* ColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerViewController.m; sourceTree = "<group>"; };
 		FBAFF95914D97A0D000D2981 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
+		FBAFF95D14D9A073000D2981 /* AdaptiveStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdaptiveStrategy.h; sourceTree = "<group>"; };
+		FBAFF95E14D9A073000D2981 /* AdaptiveStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdaptiveStrategy.m; sourceTree = "<group>"; };
+		FBAFF96114D9A10A000D2981 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		FBAFF96214D9A10A000D2981 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,8 @@
 		CE06AD3114D948BB00F44A6A /* EduApp */ = {
 			isa = PBXGroup;
 			children = (
+				FBAFF96014D9A0C6000D2981 /* Model */,
+				FBAFF95C14D99EA6000D2981 /* Adaption */,
 				CE06AD3A14D948BB00F44A6A /* AppDelegate.h */,
 				CE06AD3B14D948BB00F44A6A /* AppDelegate.m */,
 				CE06AD3D14D948BB00F44A6A /* MainStoryboard_iPhone.storyboard */,
@@ -133,8 +141,6 @@
 				CE06AD3214D948BB00F44A6A /* Supporting Files */,
 				CE06AD6714D94D9F00F44A6A /* CalculateViewController.h */,
 				CE06AD6814D94D9F00F44A6A /* CalculateViewController.m */,
-				FBAFF95314D97301000D2981 /* ProblemAnswer.h */,
-				FBAFF95414D97301000D2981 /* ProblemAnswer.m */,
 				FBAFF95714D97A0D000D2981 /* ColorPickerViewController.h */,
 				FBAFF95814D97A0D000D2981 /* ColorPickerViewController.m */,
 				FBAFF95914D97A0D000D2981 /* ColorPickerViewController.xib */,
@@ -170,6 +176,26 @@
 				CE06AD5514D948BB00F44A6A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FBAFF95C14D99EA6000D2981 /* Adaption */ = {
+			isa = PBXGroup;
+			children = (
+				FBAFF95D14D9A073000D2981 /* AdaptiveStrategy.h */,
+				FBAFF95E14D9A073000D2981 /* AdaptiveStrategy.m */,
+			);
+			name = Adaption;
+			sourceTree = "<group>";
+		};
+		FBAFF96014D9A0C6000D2981 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FBAFF96114D9A10A000D2981 /* Question.h */,
+				FBAFF96214D9A10A000D2981 /* Question.m */,
+				FBAFF95314D97301000D2981 /* Answer.h */,
+				FBAFF95414D97301000D2981 /* Answer.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,8 +310,10 @@
 				CE06AD3C14D948BB00F44A6A /* AppDelegate.m in Sources */,
 				CE06AD4514D948BB00F44A6A /* ViewController.m in Sources */,
 				CE06AD6914D94D9F00F44A6A /* CalculateViewController.m in Sources */,
-				FBAFF95514D97301000D2981 /* ProblemAnswer.m in Sources */,
+				FBAFF95514D97301000D2981 /* Answer.m in Sources */,
 				FBAFF95A14D97A0E000D2981 /* ColorPickerViewController.m in Sources */,
+				FBAFF95F14D9A073000D2981 /* AdaptiveStrategy.m in Sources */,
+				FBAFF96314D9A10A000D2981 /* Question.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

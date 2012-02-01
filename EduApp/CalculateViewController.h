@@ -1,5 +1,6 @@
 #import <UIKit/UIKit.h>
 #import "ColorPickerViewController.h"
+#import "Question.h"
 
 @interface CalculateViewController : UIViewController<UITextFieldDelegate,ColorPickerDelegate> {
     
@@ -8,6 +9,5 @@
     __weak IBOutlet UILabel *equalsLabel;
     __weak IBOutlet UIView *underscoreView;
 }
-@property int number1;
-@property int number2;
+@property (strong, nonatomic) Question* question;
 @end
