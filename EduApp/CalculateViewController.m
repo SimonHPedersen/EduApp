@@ -2,12 +2,14 @@
 #import "Answer.h"
 #import "ColorPickerViewController.h"
 #import "AdaptiveStrategy.h"
+#import "ConfigurationViewController.h"
 
 @interface CalculateViewController()
 @property float favouriteHue;
 @property (strong, nonatomic) NSMutableArray *results;
 @property (strong, nonatomic) ColorPickerViewController *colorPickerViewController;
 @property (strong, nonatomic) AdaptiveStrategy *adaptiveStrategy;
+@property (strong, nonatomic) ConfigurationViewController *configurationViewController;
 -(void)newProblem;
 @end
 
@@ -17,6 +19,7 @@
 @synthesize colorPickerViewController;
 @synthesize question;
 @synthesize adaptiveStrategy;
+@synthesize configurationViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -94,12 +97,8 @@
     [self updateColorsInView:NO];
     [answerField becomeFirstResponder];
     self.favouriteHue = 0.66666;
-    
-    colorPickerViewController = [[ColorPickerViewController alloc] initWithDelegate:self];
-    [self.view addSubview:self.colorPickerViewController.view];
-    CGRect frame = self.colorPickerViewController.view.frame;
-    frame = CGRectOffset(frame, (self.view.frame.size.height - frame.size.width) / 2.0, 0);
-    self.colorPickerViewController.view.frame = frame;
+
+    self.configurationViewController = [[ConfigurationViewController alloc] initWithParent:self];
 }
 
 - (void)viewDidUnload
@@ -137,5 +136,9 @@
 -(void)valueDidChange:(float)value {
     self.favouriteHue = value;
     [self updateColorsInView:NO];
+}
+
+- (IBAction)informationTouched:(id)sender {
+    [self.view addSubview:self.configurationViewController.view];
 }
 @end

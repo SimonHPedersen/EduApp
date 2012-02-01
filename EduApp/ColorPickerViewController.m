@@ -39,4 +39,10 @@
 - (IBAction)valueChanged:(id)sender {
     [self.delegate valueDidChange:self.slider.value];
 }
+
+-(void)changeSlideColor:(UIColor *)color {
+    self.slider.minimumTrackTintColor = color;
+    self.slider.maximumTrackTintColor = color;
+}
+
 @end

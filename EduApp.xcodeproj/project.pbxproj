@@ -27,6 +27,8 @@
 		FBAFF95B14D97A0E000D2981 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBAFF95914D97A0D000D2981 /* ColorPickerViewController.xib */; };
 		FBAFF95F14D9A073000D2981 /* AdaptiveStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF95E14D9A073000D2981 /* AdaptiveStrategy.m */; };
 		FBAFF96314D9A10A000D2981 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF96214D9A10A000D2981 /* Question.m */; };
+		FBAFF97214D9D2C5000D2981 /* ConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF97014D9D2C5000D2981 /* ConfigurationViewController.m */; };
+		FBAFF97314D9D2C5000D2981 /* ConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBAFF97114D9D2C5000D2981 /* ConfigurationViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +64,7 @@
 		CE06AD5914D948BB00F44A6A /* EduAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EduAppTests.m; sourceTree = "<group>"; };
 		CE06AD6714D94D9F00F44A6A /* CalculateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculateViewController.h; sourceTree = "<group>"; };
 		CE06AD6814D94D9F00F44A6A /* CalculateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateViewController.m; sourceTree = "<group>"; };
-		FBAFF95314D97301000D2981 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Answer.h; sourceTree = "<group>"; };
+		FBAFF95314D97301000D2981 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
 		FBAFF95414D97301000D2981 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
 		FBAFF95714D97A0D000D2981 /* ColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerViewController.h; sourceTree = "<group>"; };
 		FBAFF95814D97A0D000D2981 /* ColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerViewController.m; sourceTree = "<group>"; };
@@ -71,6 +73,9 @@
 		FBAFF95E14D9A073000D2981 /* AdaptiveStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdaptiveStrategy.m; sourceTree = "<group>"; };
 		FBAFF96114D9A10A000D2981 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		FBAFF96214D9A10A000D2981 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		FBAFF96F14D9D2C5000D2981 /* ConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationViewController.h; sourceTree = "<group>"; };
+		FBAFF97014D9D2C5000D2981 /* ConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationViewController.m; sourceTree = "<group>"; };
+		FBAFF97114D9D2C5000D2981 /* ConfigurationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigurationViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +149,9 @@
 				FBAFF95714D97A0D000D2981 /* ColorPickerViewController.h */,
 				FBAFF95814D97A0D000D2981 /* ColorPickerViewController.m */,
 				FBAFF95914D97A0D000D2981 /* ColorPickerViewController.xib */,
+				FBAFF96F14D9D2C5000D2981 /* ConfigurationViewController.h */,
+				FBAFF97014D9D2C5000D2981 /* ConfigurationViewController.m */,
+				FBAFF97114D9D2C5000D2981 /* ConfigurationViewController.xib */,
 			);
 			path = EduApp;
 			sourceTree = "<group>";
@@ -272,6 +280,7 @@
 				CE06AD3F14D948BB00F44A6A /* MainStoryboard_iPhone.storyboard in Resources */,
 				CE06AD4214D948BB00F44A6A /* MainStoryboard_iPad.storyboard in Resources */,
 				FBAFF95B14D97A0E000D2981 /* ColorPickerViewController.xib in Resources */,
+				FBAFF97314D9D2C5000D2981 /* ConfigurationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +323,7 @@
 				FBAFF95A14D97A0E000D2981 /* ColorPickerViewController.m in Sources */,
 				FBAFF95F14D9A073000D2981 /* AdaptiveStrategy.m in Sources */,
 				FBAFF96314D9A10A000D2981 /* Question.m in Sources */,
+				FBAFF97214D9D2C5000D2981 /* ConfigurationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

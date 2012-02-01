@@ -10,4 +10,5 @@
     __weak IBOutlet UIView *underscoreView;
 }
 @property (strong, nonatomic) Question* question;
+- (IBAction)informationTouched:(id)sender;
 @end
