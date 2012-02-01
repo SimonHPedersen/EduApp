@@ -1,5 +1,7 @@
 #import "CalculateViewController.h"
+
 @interface CalculateViewController()
+@property float favouriteHue;
 -(void)newProblem;
 @end
 
@@ -8,14 +10,31 @@
 @synthesize number1=_number1;
 @synthesize number2=_number2;
 @synthesize rightCounter,totalCounter;
+@synthesize favouriteHue;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (self) 
+    {
     }
     return self;
+}
+
+-(void)updateColorsInView
+{
+    self.favouriteHue = 0.66666;
+    
+    UIColor *color = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.7];
+    number1Label.textColor = color;
+    number2Label.textColor = color;
+    operatorLabel.textColor = color;
+    equalsLabel.textColor = color;
+    answerField.textColor = color;
+    underscoreView.backgroundColor = color;
+    
+    UIColor *backgroundColor = [UIColor colorWithHue:self.favouriteHue saturation:1 brightness:0.3 alpha:1.0];
+    self.view.backgroundColor = backgroundColor;
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,6 +70,8 @@
     number1Label = nil;
     number2Label = nil;
     answerField = nil;
+    equalsLabel = nil;
+    underscoreView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -97,7 +118,7 @@
     NSLog(@"%@",answer);
     
     [self checkAnswer];
-    
+    [self updateColorsInView];
     [self newProblem];
 
     answerField.text = @"";

@@ -48,7 +48,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <view contentMode="scaleToFill" id="gFA-LR-qWc">
-                                <rect key="frame" x="666" y="213" width="295" height="14"/>
+                                <rect key="frame" x="666" y="213" width="295" height="8"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -59,9 +59,11 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="answerField" destination="peV-YG-Eyx" id="wVH-o1-5oY"/>
+                        <outlet property="equalsLabel" destination="Tjg-yb-PTz" id="4gc-cQ-dZ6"/>
                         <outlet property="number1Label" destination="8he-HO-Dp0" id="6wn-IT-Rd0"/>
                         <outlet property="number2Label" destination="nWW-pQ-LD9" id="AsX-hb-MeH"/>
                         <outlet property="operatorLabel" destination="MIp-0m-IEB" id="tLV-dW-CM9"/>
+                        <outlet property="underscoreView" destination="gFA-LR-qWc" id="nZ2-2M-FdL"/>
                     </connections>
                 </viewController>
             </objects>
@@ -74,9 +76,11 @@
             <relationships>
                 <relationship kind="action" name="answerEntered:"/>
                 <relationship kind="outlet" name="answerField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="equalsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="number1Label" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="number2Label" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="operatorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="underscoreView" candidateClass="UIView"/>
             </relationships>
         </class>
     </classes>

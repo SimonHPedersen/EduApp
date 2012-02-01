@@ -6,6 +6,8 @@
     __weak IBOutlet UILabel *number2Label;
     __weak IBOutlet UILabel *operatorLabel;
     __weak IBOutlet UITextField *answerField;
+    __weak IBOutlet UILabel *equalsLabel;
+    __weak IBOutlet UIView *underscoreView;
 }
 @property int number1;
 @property int number2;
