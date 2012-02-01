@@ -28,13 +28,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="peV-YG-Eyx">
-                                <rect key="frame" x="681" y="114" width="295" height="91"/>
+                                <rect key="frame" x="704" y="114" width="272" height="91"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="123"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <view contentMode="scaleToFill" id="gFA-LR-qWc">
-                                <rect key="frame" x="681" y="213" width="295" height="8"/>
+                                <rect key="frame" x="704" y="213" width="272" height="8"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>

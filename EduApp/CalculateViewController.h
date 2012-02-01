@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
+#import "ColorPickerViewController.h"
 
-@interface CalculateViewController : UIViewController<UITextFieldDelegate> {
+@interface CalculateViewController : UIViewController<UITextFieldDelegate,ColorPickerDelegate> {
     
     __weak IBOutlet UILabel *problemLabel;
     __weak IBOutlet UITextField *answerField;

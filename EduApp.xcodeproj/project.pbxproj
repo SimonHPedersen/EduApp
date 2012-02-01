@@ -23,6 +23,8 @@
 		CE06AD5A14D948BB00F44A6A /* EduAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE06AD5914D948BB00F44A6A /* EduAppTests.m */; };
 		CE06AD6914D94D9F00F44A6A /* CalculateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE06AD6814D94D9F00F44A6A /* CalculateViewController.m */; };
 		FBAFF95514D97301000D2981 /* ProblemAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF95414D97301000D2981 /* ProblemAnswer.m */; };
+		FBAFF95A14D97A0E000D2981 /* ColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF95814D97A0D000D2981 /* ColorPickerViewController.m */; };
+		FBAFF95B14D97A0E000D2981 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBAFF95914D97A0D000D2981 /* ColorPickerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,9 @@
 		CE06AD6814D94D9F00F44A6A /* CalculateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateViewController.m; sourceTree = "<group>"; };
 		FBAFF95314D97301000D2981 /* ProblemAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemAnswer.h; sourceTree = "<group>"; };
 		FBAFF95414D97301000D2981 /* ProblemAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProblemAnswer.m; sourceTree = "<group>"; };
+		FBAFF95714D97A0D000D2981 /* ColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerViewController.h; sourceTree = "<group>"; };
+		FBAFF95814D97A0D000D2981 /* ColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerViewController.m; sourceTree = "<group>"; };
+		FBAFF95914D97A0D000D2981 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +135,9 @@
 				CE06AD6814D94D9F00F44A6A /* CalculateViewController.m */,
 				FBAFF95314D97301000D2981 /* ProblemAnswer.h */,
 				FBAFF95414D97301000D2981 /* ProblemAnswer.m */,
+				FBAFF95714D97A0D000D2981 /* ColorPickerViewController.h */,
+				FBAFF95814D97A0D000D2981 /* ColorPickerViewController.m */,
+				FBAFF95914D97A0D000D2981 /* ColorPickerViewController.xib */,
 			);
 			path = EduApp;
 			sourceTree = "<group>";
@@ -237,6 +245,7 @@
 				CE06AD3614D948BB00F44A6A /* InfoPlist.strings in Resources */,
 				CE06AD3F14D948BB00F44A6A /* MainStoryboard_iPhone.storyboard in Resources */,
 				CE06AD4214D948BB00F44A6A /* MainStoryboard_iPad.storyboard in Resources */,
+				FBAFF95B14D97A0E000D2981 /* ColorPickerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +285,7 @@
 				CE06AD4514D948BB00F44A6A /* ViewController.m in Sources */,
 				CE06AD6914D94D9F00F44A6A /* CalculateViewController.m in Sources */,
 				FBAFF95514D97301000D2981 /* ProblemAnswer.m in Sources */,
+				FBAFF95A14D97A0E000D2981 /* ColorPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

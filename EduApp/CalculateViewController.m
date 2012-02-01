@@ -1,9 +1,11 @@
 #import "CalculateViewController.h"
 #import "ProblemAnswer.h"
+#import "ColorPickerViewController.h"
 
 @interface CalculateViewController()
 @property float favouriteHue;
 @property (strong, nonatomic) NSMutableArray *results;
+@property (strong, nonatomic) ColorPickerViewController *colorPickerViewController;
 -(void)newProblem;
 @end
 
@@ -12,6 +14,7 @@
 @synthesize number2=_number2;
 @synthesize favouriteHue;
 @synthesize results;
+@synthesize colorPickerViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,11 +43,10 @@
 
 -(void)updateColorsInView
 {
-    self.favouriteHue = 0.66666;
     
     float percentCorrect;
     if (self.results.count == 0) {
-        percentCorrect = 0.0;
+        percentCorrect = 1.0;
     } else {
         percentCorrect = [self percentCorrectOfLast:5];
     }
@@ -75,6 +77,13 @@
     [self newProblem];
     [self updateColorsInView];
     [answerField becomeFirstResponder];
+    self.favouriteHue = 0.66666;
+    
+    colorPickerViewController = [[ColorPickerViewController alloc] initWithDelegate:self];
+    [self.view addSubview:self.colorPickerViewController.view];
+    CGRect frame = self.colorPickerViewController.view.frame;
+    frame = CGRectOffset(frame, (self.view.frame.size.height - frame.size.width) / 2.0, 0);
+    self.colorPickerViewController.view.frame = frame;
 }
 
 - (void)viewDidUnload
@@ -84,8 +93,6 @@
     underscoreView = nil;
     problemLabel = nil;
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 -(int)randomNumber{
@@ -131,4 +138,10 @@
     
     return NO;
 }
+
+-(void)valueDidChange:(float)value {
+    self.favouriteHue = value;
+    [self updateColorsInView];
+}
 @end
+
