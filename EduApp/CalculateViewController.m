@@ -43,8 +43,14 @@
     return ((float) correct) / ((float) total);
 }
 
--(void)updateColorsInView
+-(void)updateColorsInView:(BOOL)animate
 {
+    UIColor *color = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.7];
+    problemLabel.textColor = color;
+    equalsLabel.textColor = color;
+    answerField.textColor = color;
+    underscoreView.backgroundColor = color;
+
     float percentCorrect;
     if (self.results.count == 0) {
         percentCorrect = 1.0;
@@ -57,13 +63,16 @@
         hue = hue - 1.0;
     }
     UIColor *backgroundColor = [UIColor colorWithHue:hue saturation:1 brightness:0.3 alpha:1.0];
-    self.view.backgroundColor = backgroundColor;
     
-    UIColor *color = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.7];
-    problemLabel.textColor = color;
-    equalsLabel.textColor = color;
-    answerField.textColor = color;
-    underscoreView.backgroundColor = color;
+    CGFloat duration = 0.0;
+    if (animate)
+    {
+        duration = 0.5;
+    }
+    
+    [UIView animateWithDuration:duration animations:^{
+        self.view.backgroundColor = backgroundColor;
+    }];
 }
 
 -(void)newProblem{
@@ -82,7 +91,7 @@
     self.results = [[NSMutableArray alloc] init];
     answerField.delegate = self;
     [self newProblem];
-    [self updateColorsInView];
+    [self updateColorsInView:NO];
     [answerField becomeFirstResponder];
     self.favouriteHue = 0.66666;
     
@@ -118,7 +127,7 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self checkAnswer];
-    [self updateColorsInView];
+    [self updateColorsInView:YES];
     [self newProblem];
 
     answerField.text = @"";
@@ -127,6 +136,6 @@
 
 -(void)valueDidChange:(float)value {
     self.favouriteHue = value;
-    [self updateColorsInView];
+    [self updateColorsInView:NO];
 }
 @end
