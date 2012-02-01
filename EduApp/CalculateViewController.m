@@ -1,11 +1,3 @@
-//
-//  CalculateViewController.m
-//  EduApp
-//
-//  Created by Simon Hem Pedersen on 2/1/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
 #import "CalculateViewController.h"
 @interface CalculateViewController()
 -(void)newProblem;
@@ -65,7 +57,7 @@
 }
 
 -(int)randomNumber{
-    return 7;
+    return arc4random() % 10;
 }
 
 - (void)newProblem{
@@ -78,8 +70,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-	return YES;
+    return interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight;
 }
 
 - (IBAction)answerEntered:(id)sender {
@@ -90,11 +81,14 @@
 }
 
 -(void)checkAnswer {
+    self.totalCounter++;
     if ([self isAnswerCorrect]) {
         NSLog(@"Answer was right");
+        self.rightCounter++;
     } else {
         NSLog(@"Answer was !right");
     }
+    NSLog(@"Percentage right: %d", (100 * self.rightCounter) / self.totalCounter);
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -102,9 +96,11 @@
     
     NSLog(@"%@",answer);
     
-    [answerField resignFirstResponder];
-    
     [self checkAnswer];
+    
+    [self newProblem];
+
+    answerField.text = @"";
     
     return NO;
 }
