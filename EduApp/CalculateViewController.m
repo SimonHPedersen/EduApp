@@ -38,6 +38,11 @@
         }
     }
     
+    NSLog(@"correct: %d", correct);
+    NSLog(@"total: %d", total);
+    NSLog(@"percent %f", ((float) correct) / ((float) total));
+    NSLog(@"----------------------------------");
+    
     return ((float) correct) / ((float) total);
 }
 
@@ -115,7 +120,11 @@
 }
 
 -(void)checkAnswer {
-    ProblemAnswer *answer = [[ProblemAnswer alloc] initWithLeftHandSide:self.number1 withRightHandSide:self.number2 andAnswer:answerField.text.integerValue];
+    int answerAsInt = answerField.text.integerValue;
+    if (answerAsInt == 0 && ![answerField.text isEqualToString:@"0"]) {
+        answerAsInt = -1;
+    }
+    ProblemAnswer *answer = [[ProblemAnswer alloc] initWithLeftHandSide:self.number1 withRightHandSide:self.number2 andAnswer:answerAsInt];
     [self.results addObject:answer];
     
     if (answer.isCorrect) {
