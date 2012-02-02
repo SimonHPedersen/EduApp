@@ -1,11 +1,3 @@
-//
-//  NumericalKeyboardController.m
-//  EduApp
-//
-//  Created by Thomas Kristensen on 2/1/12.
-//  Copyright (c) 2012 Trifork. All rights reserved.
-//
-
 #import "NumericalKeyboardController.h"
 @interface NumericalKeyboardController ()
 @property (strong, nonatomic) id<NumericKeyboardDelegate> numericKeyboardDelegate;
@@ -61,4 +53,9 @@
     UIButton *numberButton = (UIButton*) sender;
     [numericKeyboardDelegate numberPressed:numberButton.titleLabel.text.integerValue];
 }
+
+- (IBAction)clearTouched:(id)sender {
+    [numericKeyboardDelegate clearTouched];
+}
+
 @end

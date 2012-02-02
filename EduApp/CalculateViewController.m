@@ -173,4 +173,8 @@
     }
 }
 
+-(void)clearTouched {
+    [self clearAnswer];
+}
+
 @end
