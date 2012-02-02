@@ -150,7 +150,7 @@ double PrepareFileAU(MyAUGraphPlayer *player)
 	rgn.mCompletionProc = NULL;
 	rgn.mCompletionProcUserData = NULL;
 	rgn.mAudioFile = player->inputFile;
-	rgn.mLoopCount = 1;
+	rgn.mLoopCount = 1000;
 	rgn.mStartFrame = 0;
 	rgn.mFramesToPlay = nPackets * player->inputFormat.mFramesPerPacket;
 	
