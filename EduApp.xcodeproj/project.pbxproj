@@ -10,6 +10,7 @@
 		AE6E8E5914DA929C00BDC82A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6E8E5814DA929C00BDC82A /* AudioToolbox.framework */; };
 		AE6E8E5D14DA92B400BDC82A /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6E8E5C14DA92B400BDC82A /* Audio.m */; };
 		AE6E8E6014DA92F000BDC82A /* funny1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AE6E8E5F14DA92F000BDC82A /* funny1.mp3 */; };
+		AE6E8E6214DA979700BDC82A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6E8E6114DA979700BDC82A /* MediaPlayer.framework */; };
 		CE06AD2C14D948BB00F44A6A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE06AD2B14D948BB00F44A6A /* UIKit.framework */; };
 		CE06AD2E14D948BB00F44A6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE06AD2D14D948BB00F44A6A /* Foundation.framework */; };
 		CE06AD3014D948BB00F44A6A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE06AD2F14D948BB00F44A6A /* CoreGraphics.framework */; };
@@ -50,6 +51,7 @@
 		AE6E8E5B14DA92B400BDC82A /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
 		AE6E8E5C14DA92B400BDC82A /* Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Audio.m; sourceTree = "<group>"; };
 		AE6E8E5F14DA92F000BDC82A /* funny1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = funny1.mp3; path = EduApp/funny1.mp3; sourceTree = "<group>"; };
+		AE6E8E6114DA979700BDC82A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		CE06AD2714D948BB00F44A6A /* EduApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EduApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE06AD2B14D948BB00F44A6A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE06AD2D14D948BB00F44A6A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +99,7 @@
 				CE06AD2E14D948BB00F44A6A /* Foundation.framework in Frameworks */,
 				CE06AD3014D948BB00F44A6A /* CoreGraphics.framework in Frameworks */,
 				AE6E8E5914DA929C00BDC82A /* AudioToolbox.framework in Frameworks */,
+				AE6E8E6214DA979700BDC82A /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +147,7 @@
 		CE06AD2A14D948BB00F44A6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE6E8E6114DA979700BDC82A /* MediaPlayer.framework */,
 				AE6E8E5814DA929C00BDC82A /* AudioToolbox.framework */,
 				CE06AD2B14D948BB00F44A6A /* UIKit.framework */,
 				CE06AD2D14D948BB00F44A6A /* Foundation.framework */,
