@@ -184,7 +184,11 @@ static void startSound(void *userData)
     Audio *audio = (__bridge Audio *)userData;
     MyAUGraphPlayer *player = audio->_player;
     NSString *songUrl = audio->_songUrl;
+#if TARGET_IPHONE_SIMULATOR
+    NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:songUrl];
+#else
     NSURL *fileURL = [[NSURL alloc] initWithString:songUrl];
+#endif
     NSLog(@"%@",[fileURL absoluteString]);
     
 	// open the input audio file

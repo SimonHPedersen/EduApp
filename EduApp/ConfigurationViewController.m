@@ -69,6 +69,10 @@
 
 // Configures and displays the media item picker.
 - (IBAction) showMediaPicker: (id) sender {
+#if TARGET_IPHONE_SIMULATOR
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fejl" message:@"Virker ikke i simulator" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+#else
     
 	MPMediaPickerController *picker =
     [[MPMediaPickerController alloc] initWithMediaTypes: MPMediaTypeAnyAudio];
@@ -80,6 +84,7 @@
 	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault animated:YES];
     
 	[self presentModalViewController: picker animated: YES];
+#endif
 }
 
 

@@ -124,6 +124,7 @@
     
     self.audio = [[Audio alloc] init];
     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"funny1" ofType:@"mp3"];
+//    soundFilePath = [NSString stringWithFormat:@"file:/%@",soundFilePath];
     [self.audio start:soundFilePath];
 }
 
