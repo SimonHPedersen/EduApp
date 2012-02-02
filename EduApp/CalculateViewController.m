@@ -3,7 +3,7 @@
 #import "ColorPickerViewController.h"
 #import "AdaptiveStrategy.h"
 #import "ConfigurationViewController.h"
-
+#import "Audio.h"
 @interface CalculateViewController()
 @property float favouriteHue;
 @property (strong, nonatomic) NSMutableArray *results;
@@ -11,7 +11,7 @@
 @property (strong, nonatomic) AdaptiveStrategy *adaptiveStrategy;
 @property (strong, nonatomic) ConfigurationViewController *configurationViewController;
 @property (strong, nonatomic) NumericalKeyboardController * numericKeyBoardController;
-
+@property (strong, nonatomic) Audio *audio;
 
 -(void)newProblem;
 @end
@@ -24,6 +24,7 @@
 @synthesize adaptiveStrategy;
 @synthesize configurationViewController;
 @synthesize numericKeyBoardController;
+@synthesize audio;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,6 +49,18 @@
     }
     
     return ((float) correct) / ((float) total);
+}
+
+-(void)updateAudio
+{
+    float percentCorrect;
+    if(self.results.count == 0){
+        percentCorrect = 1.0;
+    } else {
+        percentCorrect = [self percentCorrectOfLast:5];
+    }
+    float level = 1-percentCorrect;
+    [audio effectLevel:level * 100.0f];
 }
 
 -(void)updateColorsInView:(BOOL)animate
@@ -107,6 +120,9 @@
     self.numericKeyBoardController.view.frame = numericalKeyboardFrame;
     
     [self.view addSubview:self.numericKeyBoardController.view];
+    
+    self.audio = [[Audio alloc] init];
+    [self.audio start];
 }
 
 - (void)viewDidUnload
@@ -141,6 +157,9 @@
     answerLabel.text = [NSString stringWithFormat:@"%@%d", answerLabel.text, number];
 }
 
+-(void)clearAnswer {
+    answerLabel.text = @"";    
+}
 -(void)submitPressed{
     if (![answerLabel.text isEqualToString:@""])
     {
@@ -148,9 +167,10 @@
         
         [self checkAnswer:answer];
         [self updateColorsInView:YES];
+        [self updateAudio];
         [self newProblem];
-        
-        answerLabel.text = @"";
+        [self clearAnswer];
     }
 }
+
 @end
