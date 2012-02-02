@@ -11,8 +11,6 @@
 #include <AudioToolbox/AudioToolbox.h>
 #include <unistd.h> // for usleep()
 
-#define SOUND @"funny1"
-
 typedef struct MyAUGraphPlayer
 {
 	AudioStreamBasicDescription inputFormat; // input file's data stream description
@@ -26,6 +24,7 @@ typedef struct MyAUGraphPlayer
 
 @implementation Audio {
     MyAUGraphPlayer *_player;
+    NSString *_songUrl;
 }
 
 void CreateMyAUGraph(MyAUGraphPlayer *player);
@@ -151,7 +150,7 @@ double PrepareFileAU(MyAUGraphPlayer *player)
 	rgn.mCompletionProc = NULL;
 	rgn.mCompletionProcUserData = NULL;
 	rgn.mAudioFile = player->inputFile;
-	rgn.mLoopCount = 1;
+	rgn.mLoopCount = 1000;
 	rgn.mStartFrame = 0;
 	rgn.mFramesToPlay = nPackets * player->inputFormat.mFramesPerPacket;
 	
@@ -182,10 +181,15 @@ double PrepareFileAU(MyAUGraphPlayer *player)
 static void startSound(void *userData)
 {
 //    MyAUGraphPlayer p = {0};
-    MyAUGraphPlayer *player = (MyAUGraphPlayer *)userData;
-    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:SOUND ofType:@"mp3"];
-    NSURL *fileURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
-    
+    Audio *audio = (__bridge Audio *)userData;
+    MyAUGraphPlayer *player = audio->_player;
+    NSString *songUrl = audio->_songUrl;
+#if TARGET_IPHONE_SIMULATOR
+    NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:songUrl];
+#else
+    NSURL *fileURL = [[NSURL alloc] initWithString:songUrl];
+#endif
+    NSLog(@"%@",[fileURL absoluteString]);
     
 	// open the input audio file
 	CheckError(AudioFileOpenURL((__bridge CFURLRef)fileURL, kAudioFileReadPermission, 0, &(player->inputFile)),
@@ -219,11 +223,21 @@ static void startSound(void *userData)
 	
 }
 
-- (void) start
+- (void) start:(NSString *)url
 {
     _player = malloc(sizeof(MyAUGraphPlayer));
+    _songUrl = url;
     bzero(_player, sizeof(MyAUGraphPlayer));
-    startSound(_player);
+    startSound((__bridge void *)self);
+}
+
+- (void) stop
+{
+	AUGraphStop (_player->graph);
+	AUGraphUninitialize (_player->graph);
+	AUGraphClose(_player->graph);
+	AudioFileClose(_player->inputFile);
+
 }
 
 - (void)effectLevel:(float) value

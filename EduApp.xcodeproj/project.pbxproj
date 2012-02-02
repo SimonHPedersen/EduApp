@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60C9C71F14DAA1030083CBDF /* GraphicalKeyboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C9C71D14DAA1030083CBDF /* GraphicalKeyboardController.m */; };
+		60C9C72014DAA1030083CBDF /* GraphicalKeyboardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C9C71E14DAA1030083CBDF /* GraphicalKeyboardController.xib */; };
+		60C9C72514DAA5B30083CBDF /* ControlKeysKeyboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C9C72314DAA5B30083CBDF /* ControlKeysKeyboardController.m */; };
+		60C9C72614DAA5B30083CBDF /* ControlKeysKeyboardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C9C72414DAA5B30083CBDF /* ControlKeysKeyboardController.xib */; };
 		AE6E8E5914DA929C00BDC82A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6E8E5814DA929C00BDC82A /* AudioToolbox.framework */; };
 		AE6E8E5D14DA92B400BDC82A /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6E8E5C14DA92B400BDC82A /* Audio.m */; };
 		AE6E8E6014DA92F000BDC82A /* funny1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AE6E8E5F14DA92F000BDC82A /* funny1.mp3 */; };
+		AE6E8E6214DA979700BDC82A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6E8E6114DA979700BDC82A /* MediaPlayer.framework */; };
+		AE6E8E6A14DAA5CE00BDC82A /* LibraryConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6E8E6914DAA5CE00BDC82A /* LibraryConverter.m */; };
+		AE6E8E6C14DAAB6300BDC82A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6E8E6B14DAAB6300BDC82A /* AVFoundation.framework */; };
+		AE6E8E6E14DAB60200BDC82A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6E8E6D14DAB60200BDC82A /* CoreMedia.framework */; };
 		CE06AD2C14D948BB00F44A6A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE06AD2B14D948BB00F44A6A /* UIKit.framework */; };
 		CE06AD2E14D948BB00F44A6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE06AD2D14D948BB00F44A6A /* Foundation.framework */; };
 		CE06AD3014D948BB00F44A6A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE06AD2F14D948BB00F44A6A /* CoreGraphics.framework */; };
@@ -46,10 +54,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		60C9C71C14DAA1030083CBDF /* GraphicalKeyboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicalKeyboardController.h; sourceTree = "<group>"; };
+		60C9C71D14DAA1030083CBDF /* GraphicalKeyboardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphicalKeyboardController.m; sourceTree = "<group>"; };
+		60C9C71E14DAA1030083CBDF /* GraphicalKeyboardController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GraphicalKeyboardController.xib; sourceTree = "<group>"; };
+		60C9C72214DAA5B30083CBDF /* ControlKeysKeyboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlKeysKeyboardController.h; sourceTree = "<group>"; };
+		60C9C72314DAA5B30083CBDF /* ControlKeysKeyboardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlKeysKeyboardController.m; sourceTree = "<group>"; };
+		60C9C72414DAA5B30083CBDF /* ControlKeysKeyboardController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlKeysKeyboardController.xib; sourceTree = "<group>"; };
 		AE6E8E5814DA929C00BDC82A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AE6E8E5B14DA92B400BDC82A /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
 		AE6E8E5C14DA92B400BDC82A /* Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Audio.m; sourceTree = "<group>"; };
 		AE6E8E5F14DA92F000BDC82A /* funny1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = funny1.mp3; path = EduApp/funny1.mp3; sourceTree = "<group>"; };
+		AE6E8E6114DA979700BDC82A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		AE6E8E6814DAA5CE00BDC82A /* LibraryConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryConverter.h; sourceTree = "<group>"; };
+		AE6E8E6914DAA5CE00BDC82A /* LibraryConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryConverter.m; sourceTree = "<group>"; };
+		AE6E8E6B14DAAB6300BDC82A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AE6E8E6D14DAB60200BDC82A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		CE06AD2714D948BB00F44A6A /* EduApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EduApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE06AD2B14D948BB00F44A6A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE06AD2D14D948BB00F44A6A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +116,9 @@
 				CE06AD2E14D948BB00F44A6A /* Foundation.framework in Frameworks */,
 				CE06AD3014D948BB00F44A6A /* CoreGraphics.framework in Frameworks */,
 				AE6E8E5914DA929C00BDC82A /* AudioToolbox.framework in Frameworks */,
+				AE6E8E6214DA979700BDC82A /* MediaPlayer.framework in Frameworks */,
+				AE6E8E6C14DAAB6300BDC82A /* AVFoundation.framework in Frameworks */,
+				AE6E8E6E14DAB60200BDC82A /* CoreMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +141,17 @@
 				AE6E8E5F14DA92F000BDC82A /* funny1.mp3 */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		AE6E8E6714DAA57500BDC82A /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				AE6E8E5B14DA92B400BDC82A /* Audio.h */,
+				AE6E8E5C14DA92B400BDC82A /* Audio.m */,
+				AE6E8E6814DAA5CE00BDC82A /* LibraryConverter.h */,
+				AE6E8E6914DAA5CE00BDC82A /* LibraryConverter.m */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 		CE06AD1C14D948BB00F44A6A = {
@@ -144,6 +177,9 @@
 		CE06AD2A14D948BB00F44A6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE6E8E6D14DAB60200BDC82A /* CoreMedia.framework */,
+				AE6E8E6B14DAAB6300BDC82A /* AVFoundation.framework */,
+				AE6E8E6114DA979700BDC82A /* MediaPlayer.framework */,
 				AE6E8E5814DA929C00BDC82A /* AudioToolbox.framework */,
 				CE06AD2B14D948BB00F44A6A /* UIKit.framework */,
 				CE06AD2D14D948BB00F44A6A /* Foundation.framework */,
@@ -156,11 +192,10 @@
 		CE06AD3114D948BB00F44A6A /* EduApp */ = {
 			isa = PBXGroup;
 			children = (
+				AE6E8E6714DAA57500BDC82A /* Audio */,
 				FB7FD4E714D9E42600985528 /* InputControl */,
 				FBAFF96014D9A0C6000D2981 /* Model */,
 				FBAFF95C14D99EA6000D2981 /* Adaption */,
-				AE6E8E5B14DA92B400BDC82A /* Audio.h */,
-				AE6E8E5C14DA92B400BDC82A /* Audio.m */,
 				CE06AD3A14D948BB00F44A6A /* AppDelegate.h */,
 				CE06AD3B14D948BB00F44A6A /* AppDelegate.m */,
 				CE06AD4014D948BB00F44A6A /* MainStoryboard_iPad.storyboard */,
@@ -215,6 +250,12 @@
 				FBAFF97414D9E3E2000D2981 /* NumericalKeyboardController.h */,
 				FBAFF97514D9E3E2000D2981 /* NumericalKeyboardController.m */,
 				FBAFF97614D9E3E2000D2981 /* NumericalKeyboardController.xib */,
+				60C9C71C14DAA1030083CBDF /* GraphicalKeyboardController.h */,
+				60C9C71D14DAA1030083CBDF /* GraphicalKeyboardController.m */,
+				60C9C71E14DAA1030083CBDF /* GraphicalKeyboardController.xib */,
+				60C9C72214DAA5B30083CBDF /* ControlKeysKeyboardController.h */,
+				60C9C72314DAA5B30083CBDF /* ControlKeysKeyboardController.m */,
+				60C9C72414DAA5B30083CBDF /* ControlKeysKeyboardController.xib */,
 			);
 			name = InputControl;
 			sourceTree = "<group>";
@@ -315,6 +356,8 @@
 				FBAFF97314D9D2C5000D2981 /* ConfigurationViewController.xib in Resources */,
 				FBAFF97814D9E3E2000D2981 /* NumericalKeyboardController.xib in Resources */,
 				AE6E8E6014DA92F000BDC82A /* funny1.mp3 in Resources */,
+				60C9C72014DAA1030083CBDF /* GraphicalKeyboardController.xib in Resources */,
+				60C9C72614DAA5B30083CBDF /* ControlKeysKeyboardController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +403,9 @@
 				FBAFF97214D9D2C5000D2981 /* ConfigurationViewController.m in Sources */,
 				FBAFF97714D9E3E2000D2981 /* NumericalKeyboardController.m in Sources */,
 				AE6E8E5D14DA92B400BDC82A /* Audio.m in Sources */,
+				60C9C71F14DAA1030083CBDF /* GraphicalKeyboardController.m in Sources */,
+				60C9C72514DAA5B30083CBDF /* ControlKeysKeyboardController.m in Sources */,
+				AE6E8E6A14DAA5CE00BDC82A /* LibraryConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

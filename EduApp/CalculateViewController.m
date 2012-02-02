@@ -10,7 +10,8 @@
 @property (strong, nonatomic) ColorPickerViewController *colorPickerViewController;
 @property (strong, nonatomic) AdaptiveStrategy *adaptiveStrategy;
 @property (strong, nonatomic) ConfigurationViewController *configurationViewController;
-@property (strong, nonatomic) NumericalKeyboardController * numericKeyBoardController;
+@property (strong, nonatomic) NumericalKeyboardController *numericKeyBoardController;
+@property (strong, nonatomic) ControlKeysKeyboardController *controlKeysKeyboardController;
 @property (strong, nonatomic) Audio *audio;
 
 -(void)newProblem;
@@ -24,6 +25,7 @@
 @synthesize adaptiveStrategy;
 @synthesize configurationViewController;
 @synthesize numericKeyBoardController;
+@synthesize controlKeysKeyboardController;
 @synthesize audio;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -82,7 +84,8 @@
     if (hue > 1.0) {
         hue = hue - 1.0;
     }
-    UIColor *backgroundColor = [UIColor colorWithHue:hue saturation:1 brightness:0.3 alpha:1.0];
+    float saturation = percentCorrect;
+    UIColor *backgroundColor = [UIColor colorWithHue:self.favouriteHue saturation:saturation brightness:0.3 alpha:1.0];
     
     CGFloat duration = 0.0;
     if (animate)
@@ -114,15 +117,23 @@
     self.favouriteHue = 0.66666;
 
     self.configurationViewController = [[ConfigurationViewController alloc] initWithParent:self];
+    self.configurationViewController.libraryConverterDelegate = self;
     self.numericKeyBoardController = [[NumericalKeyboardController alloc] initWithDelegate:self];
     CGRect numericalKeyboardFrame = self.numericKeyBoardController.view.frame;
     numericalKeyboardFrame = CGRectOffset(numericalKeyboardFrame, 0, 768 - numericalKeyboardFrame.size.height);
     self.numericKeyBoardController.view.frame = numericalKeyboardFrame;
+    self.controlKeysKeyboardController = [[ControlKeysKeyboardController alloc] initWithDelegate:self];
+    CGRect controlKeysKeyboardFrame = self.controlKeysKeyboardController.view.frame;
+    controlKeysKeyboardFrame = CGRectOffset(controlKeysKeyboardFrame, 1024 - controlKeysKeyboardFrame.size.width, 768 - numericalKeyboardFrame.size.height - controlKeysKeyboardFrame.size.height);
+    self.controlKeysKeyboardController.view.frame = controlKeysKeyboardFrame;
     
     [self.view addSubview:self.numericKeyBoardController.view];
+    [self.view addSubview:self.controlKeysKeyboardController.view];
     
     self.audio = [[Audio alloc] init];
-    [self.audio start];
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"funny1" ofType:@"mp3"];
+//    soundFilePath = [NSString stringWithFormat:@"file:/%@",soundFilePath];
+    [self.audio start:soundFilePath];
 }
 
 - (void)viewDidUnload
@@ -173,4 +184,20 @@
     }
 }
 
+-(void)clearTouched {
+    [self clearAnswer];
+}
+
+#pragma mark - LibaryConverterDelegate
+
+-(void)conversionDidFinish:(NSString *)songUrl
+{
+    [audio stop];
+    [audio start:songUrl];
+}
+
+-(void)conversionDidProgress:(float)progress
+{
+    //nop
+}
 @end

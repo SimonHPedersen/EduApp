@@ -3,11 +3,15 @@
 @interface ConfigurationViewController() 
 @property (weak, nonatomic) id<ColorPickerDelegate> colorPickerDelegate;
 @property (strong, nonatomic) ColorPickerViewController* colorPickerViewController;
+@property (strong, nonatomic) LibraryConverter *converter;
 @end
 
 @implementation ConfigurationViewController
 @synthesize colorPickerDelegate;
 @synthesize colorPickerViewController;
+@synthesize converter;
+@synthesize libraryConverterDelegate;
+@synthesize activityIndicator;
 
 - (id)initWithParent:(id<ColorPickerDelegate>)parent
 {
@@ -33,10 +37,14 @@
     [self.view addSubview:self.colorPickerViewController.view];
     
     [self valueDidChange:self.colorPickerViewController.slider.value];
+    
+    self.converter = [[LibraryConverter alloc] init];
+    self.converter.delegate = self;
 }
 
 - (void)viewDidUnload
 {
+    [self setActivityIndicator:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -56,4 +64,67 @@
     self.view.backgroundColor = [UIColor colorWithHue:value saturation:1 brightness:0.3 alpha:1.0];
     [self.colorPickerDelegate valueDidChange:value];
 }
+
+#pragma mark - Media Player stuff
+
+// Configures and displays the media item picker.
+- (IBAction) showMediaPicker: (id) sender {
+#if TARGET_IPHONE_SIMULATOR
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fejl" message:@"Virker ikke i simulator" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+#else
+    
+	MPMediaPickerController *picker =
+    [[MPMediaPickerController alloc] initWithMediaTypes: MPMediaTypeAnyAudio];
+	
+	picker.delegate						= self;
+	picker.allowsPickingMultipleItems	= NO;
+	picker.prompt						= NSLocalizedString (@"AddSongsPrompt", @"Prompt to user to choose some songs to play");
+	
+	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault animated:YES];
+    
+	[self presentModalViewController: picker animated: YES];
+#endif
+}
+
+
+// Responds to the user tapping Done after choosing music.
+- (void) mediaPicker: (MPMediaPickerController *) mediaPicker didPickMediaItems: (MPMediaItemCollection *) mediaItemCollection {
+    
+	[self dismissModalViewControllerAnimated: YES];
+    
+    NSArray *items = [mediaItemCollection items];
+    MPMediaItem *item = [items objectAtIndex:0];
+    [self.converter convert:item];
+    NSLog(@"%@",[item valueForProperty:MPMediaItemPropertyAssetURL]);
+
+    [self.activityIndicator startAnimating];
+    
+}
+
+
+// Responds to the user tapping done having chosen no music.
+- (void) mediaPickerDidCancel: (MPMediaPickerController *) mediaPicker {
+    
+	[self dismissModalViewControllerAnimated: YES];
+    
+	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackOpaque animated:YES];
+}
+
+# pragma mark - LibraryConverterDelegate
+
+-(void)conversionDidProgress:(float)progress
+{
+    [self.libraryConverterDelegate conversionDidProgress:progress];
+}
+
+-(void)conversionDidFinish:(NSString *)songUrl
+{
+    [self.activityIndicator performSelectorOnMainThread:@selector(stopAnimating) withObject:nil waitUntilDone:NO];
+//    [self.activityIndicator stopAnimating];
+    [self.libraryConverterDelegate conversionDidFinish:songUrl];
+}
+
+
+
 @end
