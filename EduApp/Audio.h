@@ -10,7 +10,9 @@
 
 @interface Audio : NSOperation
 
-- (void) start;
+- (void) start:(NSString *)url;
+
+- (void) stop;
 
 - (void)effectLevel:(float) value;
 

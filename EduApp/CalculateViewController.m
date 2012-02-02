@@ -84,7 +84,8 @@
     if (hue > 1.0) {
         hue = hue - 1.0;
     }
-    UIColor *backgroundColor = [UIColor colorWithHue:hue saturation:1 brightness:0.3 alpha:1.0];
+    float saturation = percentCorrect;
+    UIColor *backgroundColor = [UIColor colorWithHue:self.favouriteHue saturation:saturation brightness:0.3 alpha:1.0];
     
     CGFloat duration = 0.0;
     if (animate)
@@ -116,6 +117,7 @@
     self.favouriteHue = 0.66666;
 
     self.configurationViewController = [[ConfigurationViewController alloc] initWithParent:self];
+    self.configurationViewController.libraryConverterDelegate = self;
     self.numericKeyBoardController = [[NumericalKeyboardController alloc] initWithDelegate:self];
     CGRect numericalKeyboardFrame = self.numericKeyBoardController.view.frame;
     numericalKeyboardFrame = CGRectOffset(numericalKeyboardFrame, 0, 768 - numericalKeyboardFrame.size.height);
@@ -129,7 +131,9 @@
     [self.view addSubview:self.controlKeysKeyboardController.view];
     
     self.audio = [[Audio alloc] init];
-    [self.audio start];
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"funny1" ofType:@"mp3"];
+//    soundFilePath = [NSString stringWithFormat:@"file:/%@",soundFilePath];
+    [self.audio start:soundFilePath];
 }
 
 - (void)viewDidUnload
@@ -184,4 +188,16 @@
     [self clearAnswer];
 }
 
+#pragma mark - LibaryConverterDelegate
+
+-(void)conversionDidFinish:(NSString *)songUrl
+{
+    [audio stop];
+    [audio start:songUrl];
+}
+
+-(void)conversionDidProgress:(float)progress
+{
+    //nop
+}
 @end
