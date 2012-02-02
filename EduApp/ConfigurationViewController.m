@@ -56,4 +56,45 @@
     self.view.backgroundColor = [UIColor colorWithHue:value saturation:1 brightness:0.3 alpha:1.0];
     [self.colorPickerDelegate valueDidChange:value];
 }
+
+#pragma mark - Media Player stuff
+
+// Configures and displays the media item picker.
+- (IBAction) showMediaPicker: (id) sender {
+    
+	MPMediaPickerController *picker =
+    [[MPMediaPickerController alloc] initWithMediaTypes: MPMediaTypeAnyAudio];
+	
+	picker.delegate						= self;
+	picker.allowsPickingMultipleItems	= YES;
+	picker.prompt						= NSLocalizedString (@"AddSongsPrompt", @"Prompt to user to choose some songs to play");
+	
+	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault animated:YES];
+    
+	[self presentModalViewController: picker animated: YES];
+}
+
+
+// Responds to the user tapping Done after choosing music.
+- (void) mediaPicker: (MPMediaPickerController *) mediaPicker didPickMediaItems: (MPMediaItemCollection *) mediaItemCollection {
+    
+	[self dismissModalViewControllerAnimated: YES];
+//	[self.delegate updatePlayerQueueWithMediaCollection: mediaItemCollection];
+//	[self.mediaItemCollectionTable reloadData];
+    
+//	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackOpaque animated:YES];
+}
+
+
+// Responds to the user tapping done having chosen no music.
+- (void) mediaPickerDidCancel: (MPMediaPickerController *) mediaPicker {
+    
+	[self dismissModalViewControllerAnimated: YES];
+    
+	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackOpaque animated:YES];
+}
+
+
+
+
 @end
