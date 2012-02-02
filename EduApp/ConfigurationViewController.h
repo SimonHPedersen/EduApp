@@ -7,4 +7,5 @@
 - (IBAction)okTouched:(id)sender;
 - (id)initWithParent:(id<ColorPickerDelegate>)parent;
 @property (weak, nonatomic) id<LibraryConverterDelegate> libraryConverterDelegate;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end

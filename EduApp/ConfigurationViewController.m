@@ -11,6 +11,7 @@
 @synthesize colorPickerViewController;
 @synthesize converter;
 @synthesize libraryConverterDelegate;
+@synthesize activityIndicator;
 
 - (id)initWithParent:(id<ColorPickerDelegate>)parent
 {
@@ -39,11 +40,11 @@
     
     self.converter = [[LibraryConverter alloc] init];
     self.converter.delegate = self;
-    
 }
 
 - (void)viewDidUnload
 {
+    [self setActivityIndicator:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -91,13 +92,9 @@
     MPMediaItem *item = [items objectAtIndex:0];
     [self.converter convert:item];
     NSLog(@"%@",[item valueForProperty:MPMediaItemPropertyAssetURL]);
+
+    [self.activityIndicator startAnimating];
     
-    
-    
-//	[self.delegate updatePlayerQueueWithMediaCollection: mediaItemCollection];
-//	[self.mediaItemCollectionTable reloadData];
-    
-//	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackOpaque animated:YES];
 }
 
 
@@ -118,6 +115,7 @@
 
 -(void)conversionDidFinish:(NSString *)songUrl
 {
+    [self.activityIndicator stopAnimating];
     [self.libraryConverterDelegate conversionDidFinish:songUrl];
 }
 

@@ -93,8 +93,8 @@
              if (nextBuffer) {
                  // append buffer
                  [assetWriterInput appendSampleBuffer: nextBuffer];
-				NSLog (@"appended a buffer (%lu bytes)", 
-					   CMSampleBufferGetTotalSampleSize (nextBuffer));
+//				NSLog (@"appended a buffer (%lu bytes)", 
+//					   CMSampleBufferGetTotalSampleSize (nextBuffer));
                  convertedByteCount += CMSampleBufferGetTotalSampleSize (nextBuffer);
                  // oops, no
                  // sizeLabel.text = [NSString stringWithFormat: @"%ld bytes converted", convertedByteCount];
