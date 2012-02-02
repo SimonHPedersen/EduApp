@@ -184,8 +184,8 @@ static void startSound(void *userData)
     Audio *audio = (__bridge Audio *)userData;
     MyAUGraphPlayer *player = audio->_player;
     NSString *songUrl = audio->_songUrl;
-    NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:songUrl];
-    
+    NSURL *fileURL = [[NSURL alloc] initWithString:songUrl];
+    NSLog(@"%@",[fileURL absoluteString]);
     
 	// open the input audio file
 	CheckError(AudioFileOpenURL((__bridge CFURLRef)fileURL, kAudioFileReadPermission, 0, &(player->inputFile)),
