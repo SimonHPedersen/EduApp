@@ -66,7 +66,7 @@
     [[MPMediaPickerController alloc] initWithMediaTypes: MPMediaTypeAnyAudio];
 	
 	picker.delegate						= self;
-	picker.allowsPickingMultipleItems	= YES;
+	picker.allowsPickingMultipleItems	= NO;
 	picker.prompt						= NSLocalizedString (@"AddSongsPrompt", @"Prompt to user to choose some songs to play");
 	
 	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault animated:YES];
@@ -79,6 +79,10 @@
 - (void) mediaPicker: (MPMediaPickerController *) mediaPicker didPickMediaItems: (MPMediaItemCollection *) mediaItemCollection {
     
 	[self dismissModalViewControllerAnimated: YES];
+    
+    NSArray *items = [mediaItemCollection items];
+    MPMediaItem *item = [items objectAtIndex:0];
+    NSLog(@"%@",[item valueForProperty:MPMediaItemPropertyAssetURL]);
 //	[self.delegate updatePlayerQueueWithMediaCollection: mediaItemCollection];
 //	[self.mediaItemCollectionTable reloadData];
     

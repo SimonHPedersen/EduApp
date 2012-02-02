@@ -122,7 +122,8 @@
     [self.view addSubview:self.numericKeyBoardController.view];
     
     self.audio = [[Audio alloc] init];
-    [self.audio start];
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"funny1" ofType:@"mp3"];
+    [self.audio start:soundFilePath];
 }
 
 - (void)viewDidUnload

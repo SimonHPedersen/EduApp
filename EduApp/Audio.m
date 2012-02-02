@@ -11,8 +11,6 @@
 #include <AudioToolbox/AudioToolbox.h>
 #include <unistd.h> // for usleep()
 
-#define SOUND @"funny1"
-
 typedef struct MyAUGraphPlayer
 {
 	AudioStreamBasicDescription inputFormat; // input file's data stream description
@@ -26,6 +24,7 @@ typedef struct MyAUGraphPlayer
 
 @implementation Audio {
     MyAUGraphPlayer *_player;
+    NSString *_songUrl;
 }
 
 void CreateMyAUGraph(MyAUGraphPlayer *player);
@@ -182,9 +181,10 @@ double PrepareFileAU(MyAUGraphPlayer *player)
 static void startSound(void *userData)
 {
 //    MyAUGraphPlayer p = {0};
-    MyAUGraphPlayer *player = (MyAUGraphPlayer *)userData;
-    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:SOUND ofType:@"mp3"];
-    NSURL *fileURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
+    Audio *audio = (__bridge Audio *)userData;
+    MyAUGraphPlayer *player = audio->_player;
+    NSString *songUrl = audio->_songUrl;
+    NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:songUrl];
     
     
 	// open the input audio file
@@ -219,11 +219,21 @@ static void startSound(void *userData)
 	
 }
 
-- (void) start
+- (void) start:(NSString *)url
 {
     _player = malloc(sizeof(MyAUGraphPlayer));
+    _songUrl = url;
     bzero(_player, sizeof(MyAUGraphPlayer));
-    startSound(_player);
+    startSound((__bridge void *)self);
+}
+
+- (void) stop
+{
+	AUGraphStop (_player->graph);
+	AUGraphUninitialize (_player->graph);
+	AUGraphClose(_player->graph);
+	AudioFileClose(_player->inputFile);
+
 }
 
 - (void)effectLevel:(float) value
