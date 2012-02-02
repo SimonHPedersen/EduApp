@@ -175,6 +175,10 @@
     }
 }
 
+-(void)clearTouched {
+    [self clearAnswer];
+}
+
 #pragma mark - LibaryConverterDelegate
 
 -(void)conversionDidFinish:(NSString *)songUrl
@@ -187,5 +191,4 @@
 {
     //nop
 }
-
 @end
