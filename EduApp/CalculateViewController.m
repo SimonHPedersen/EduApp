@@ -10,7 +10,8 @@
 @property (strong, nonatomic) ColorPickerViewController *colorPickerViewController;
 @property (strong, nonatomic) AdaptiveStrategy *adaptiveStrategy;
 @property (strong, nonatomic) ConfigurationViewController *configurationViewController;
-@property (strong, nonatomic) NumericalKeyboardController * numericKeyBoardController;
+@property (strong, nonatomic) NumericalKeyboardController *numericKeyBoardController;
+@property (strong, nonatomic) ControlKeysKeyboardController *controlKeysKeyboardController;
 @property (strong, nonatomic) Audio *audio;
 
 -(void)newProblem;
@@ -24,6 +25,7 @@
 @synthesize adaptiveStrategy;
 @synthesize configurationViewController;
 @synthesize numericKeyBoardController;
+@synthesize controlKeysKeyboardController;
 @synthesize audio;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -118,8 +120,13 @@
     CGRect numericalKeyboardFrame = self.numericKeyBoardController.view.frame;
     numericalKeyboardFrame = CGRectOffset(numericalKeyboardFrame, 0, 768 - numericalKeyboardFrame.size.height);
     self.numericKeyBoardController.view.frame = numericalKeyboardFrame;
+    self.controlKeysKeyboardController = [[ControlKeysKeyboardController alloc] initWithDelegate:self];
+    CGRect controlKeysKeyboardFrame = self.controlKeysKeyboardController.view.frame;
+    controlKeysKeyboardFrame = CGRectOffset(controlKeysKeyboardFrame, 1024 - controlKeysKeyboardFrame.size.width, 768 - numericalKeyboardFrame.size.height - controlKeysKeyboardFrame.size.height);
+    self.controlKeysKeyboardController.view.frame = controlKeysKeyboardFrame;
     
     [self.view addSubview:self.numericKeyBoardController.view];
+    [self.view addSubview:self.controlKeysKeyboardController.view];
     
     self.audio = [[Audio alloc] init];
     [self.audio start];

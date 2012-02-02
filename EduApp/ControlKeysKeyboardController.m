@@ -1,17 +1,16 @@
-#import "NumericalKeyboardController.h"
-@interface NumericalKeyboardController ()
-@property (strong, nonatomic) id<NumericKeyboardDelegate> numericKeyboardDelegate;
+#import "ControlKeysKeyboardController.h"
+@interface ControlKeysKeyboardController()
+@property (strong, nonatomic) id<ControlKeysKeyboardDelegate> controlKeysKeyboardDelegate;
 @end
 
+@implementation ControlKeysKeyboardController
+@synthesize controlKeysKeyboardDelegate=_controlKeysKeyboardDelegate;
 
-@implementation NumericalKeyboardController
-@synthesize numericKeyboardDelegate;
-
-- (id)initWithDelegate:(id<NumericKeyboardDelegate>)numericKeyboarDelegate
+- (id)initWithDelegate:(id<ControlKeysKeyboardDelegate>)controlKeysKeyboardDelegate
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
-        self.numericKeyboardDelegate = numericKeyboarDelegate;
+        self.controlKeysKeyboardDelegate = controlKeysKeyboardDelegate;
     }
     return self;
 }
@@ -45,9 +44,13 @@
 	return YES;
 }
 
-- (IBAction)numberPressed:(id)sender {
-    UIButton *numberButton = (UIButton*) sender;
-    [numericKeyboardDelegate numberPressed:numberButton.titleLabel.text.integerValue];
+- (IBAction)submitAnswer:(id)sender {
+    [self.controlKeysKeyboardDelegate submitPressed];
 }
+
+- (IBAction)clearTouched:(id)sender {
+    [self.controlKeysKeyboardDelegate clearTouched];
+}
+
 
 @end
