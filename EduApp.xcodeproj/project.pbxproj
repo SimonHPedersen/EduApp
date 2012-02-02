@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE6E8E5914DA929C00BDC82A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6E8E5814DA929C00BDC82A /* AudioToolbox.framework */; };
+		AE6E8E5D14DA92B400BDC82A /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6E8E5C14DA92B400BDC82A /* Audio.m */; };
+		AE6E8E6014DA92F000BDC82A /* funny1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AE6E8E5F14DA92F000BDC82A /* funny1.mp3 */; };
 		CE06AD2C14D948BB00F44A6A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE06AD2B14D948BB00F44A6A /* UIKit.framework */; };
 		CE06AD2E14D948BB00F44A6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE06AD2D14D948BB00F44A6A /* Foundation.framework */; };
 		CE06AD3014D948BB00F44A6A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE06AD2F14D948BB00F44A6A /* CoreGraphics.framework */; };
@@ -43,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE6E8E5814DA929C00BDC82A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		AE6E8E5B14DA92B400BDC82A /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
+		AE6E8E5C14DA92B400BDC82A /* Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Audio.m; sourceTree = "<group>"; };
+		AE6E8E5F14DA92F000BDC82A /* funny1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = funny1.mp3; path = EduApp/funny1.mp3; sourceTree = "<group>"; };
 		CE06AD2714D948BB00F44A6A /* EduApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EduApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE06AD2B14D948BB00F44A6A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE06AD2D14D948BB00F44A6A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +96,7 @@
 				CE06AD2C14D948BB00F44A6A /* UIKit.framework in Frameworks */,
 				CE06AD2E14D948BB00F44A6A /* Foundation.framework in Frameworks */,
 				CE06AD3014D948BB00F44A6A /* CoreGraphics.framework in Frameworks */,
+				AE6E8E5914DA929C00BDC82A /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,9 +113,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE6E8E5E14DA92E400BDC82A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AE6E8E5F14DA92F000BDC82A /* funny1.mp3 */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		CE06AD1C14D948BB00F44A6A = {
 			isa = PBXGroup;
 			children = (
+				AE6E8E5E14DA92E400BDC82A /* Resources */,
 				CE06AD3114D948BB00F44A6A /* EduApp */,
 				CE06AD5214D948BB00F44A6A /* EduAppTests */,
 				CE06AD2A14D948BB00F44A6A /* Frameworks */,
@@ -127,6 +144,7 @@
 		CE06AD2A14D948BB00F44A6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE6E8E5814DA929C00BDC82A /* AudioToolbox.framework */,
 				CE06AD2B14D948BB00F44A6A /* UIKit.framework */,
 				CE06AD2D14D948BB00F44A6A /* Foundation.framework */,
 				CE06AD2F14D948BB00F44A6A /* CoreGraphics.framework */,
@@ -141,6 +159,8 @@
 				FB7FD4E714D9E42600985528 /* InputControl */,
 				FBAFF96014D9A0C6000D2981 /* Model */,
 				FBAFF95C14D99EA6000D2981 /* Adaption */,
+				AE6E8E5B14DA92B400BDC82A /* Audio.h */,
+				AE6E8E5C14DA92B400BDC82A /* Audio.m */,
 				CE06AD3A14D948BB00F44A6A /* AppDelegate.h */,
 				CE06AD3B14D948BB00F44A6A /* AppDelegate.m */,
 				CE06AD4014D948BB00F44A6A /* MainStoryboard_iPad.storyboard */,
@@ -294,6 +314,7 @@
 				FBAFF95B14D97A0E000D2981 /* ColorPickerViewController.xib in Resources */,
 				FBAFF97314D9D2C5000D2981 /* ConfigurationViewController.xib in Resources */,
 				FBAFF97814D9E3E2000D2981 /* NumericalKeyboardController.xib in Resources */,
+				AE6E8E6014DA92F000BDC82A /* funny1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +359,7 @@
 				FBAFF96314D9A10A000D2981 /* Question.m in Sources */,
 				FBAFF97214D9D2C5000D2981 /* ConfigurationViewController.m in Sources */,
 				FBAFF97714D9E3E2000D2981 /* NumericalKeyboardController.m in Sources */,
+				AE6E8E5D14DA92B400BDC82A /* Audio.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
