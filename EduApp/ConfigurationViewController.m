@@ -115,7 +115,8 @@
 
 -(void)conversionDidFinish:(NSString *)songUrl
 {
-    [self.activityIndicator stopAnimating];
+    [self.activityIndicator performSelectorOnMainThread:@selector(stopAnimating) withObject:nil waitUntilDone:NO];
+//    [self.activityIndicator stopAnimating];
     [self.libraryConverterDelegate conversionDidFinish:songUrl];
 }
 
