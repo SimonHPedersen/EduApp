@@ -12,6 +12,8 @@
 
 - (void) start:(NSString *)url;
 
+- (void) stop;
+
 - (void)effectLevel:(float) value;
 
 @end

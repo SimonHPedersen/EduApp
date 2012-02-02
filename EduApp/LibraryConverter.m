@@ -13,7 +13,7 @@
 
 - (void)convert:(MPMediaItem *)item
 {
-    
+    [delegate conversionDidFinish:[[NSBundle mainBundle] pathForResource:@"funny1" ofType:@"mp3"]];
 }
 
 @end

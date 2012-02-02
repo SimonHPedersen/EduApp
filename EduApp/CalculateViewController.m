@@ -114,6 +114,7 @@
     self.favouriteHue = 0.66666;
 
     self.configurationViewController = [[ConfigurationViewController alloc] initWithParent:self];
+    self.configurationViewController.libraryConverterDelegate = self;
     self.numericKeyBoardController = [[NumericalKeyboardController alloc] initWithDelegate:self];
     CGRect numericalKeyboardFrame = self.numericKeyBoardController.view.frame;
     numericalKeyboardFrame = CGRectOffset(numericalKeyboardFrame, 0, 768 - numericalKeyboardFrame.size.height);
@@ -172,6 +173,19 @@
         [self newProblem];
         [self clearAnswer];
     }
+}
+
+#pragma mark - LibaryConverterDelegate
+
+-(void)conversionDidFinish:(NSString *)songUrl
+{
+    [audio stop];
+    [audio start:songUrl];
+}
+
+-(void)conversionDidProgress:(float)progress
+{
+    //nop
 }
 
 @end

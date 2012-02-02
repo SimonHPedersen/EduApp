@@ -3,11 +3,14 @@
 @interface ConfigurationViewController() 
 @property (weak, nonatomic) id<ColorPickerDelegate> colorPickerDelegate;
 @property (strong, nonatomic) ColorPickerViewController* colorPickerViewController;
+@property (strong, nonatomic) LibraryConverter *converter;
 @end
 
 @implementation ConfigurationViewController
 @synthesize colorPickerDelegate;
 @synthesize colorPickerViewController;
+@synthesize converter;
+@synthesize libraryConverterDelegate;
 
 - (id)initWithParent:(id<ColorPickerDelegate>)parent
 {
@@ -33,6 +36,10 @@
     [self.view addSubview:self.colorPickerViewController.view];
     
     [self valueDidChange:self.colorPickerViewController.slider.value];
+    
+    self.converter = [[LibraryConverter alloc] init];
+    self.converter.delegate = self;
+    
 }
 
 - (void)viewDidUnload
@@ -82,7 +89,11 @@
     
     NSArray *items = [mediaItemCollection items];
     MPMediaItem *item = [items objectAtIndex:0];
+    [self.converter convert:item];
     NSLog(@"%@",[item valueForProperty:MPMediaItemPropertyAssetURL]);
+    
+    
+    
 //	[self.delegate updatePlayerQueueWithMediaCollection: mediaItemCollection];
 //	[self.mediaItemCollectionTable reloadData];
     
@@ -98,6 +109,17 @@
 	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackOpaque animated:YES];
 }
 
+# pragma mark - LibraryConverterDelegate
+
+-(void)conversionDidProgress:(float)progress
+{
+    [self.libraryConverterDelegate conversionDidProgress:progress];
+}
+
+-(void)conversionDidFinish:(NSString *)songUrl
+{
+    [self.libraryConverterDelegate conversionDidFinish:songUrl];
+}
 
 
 
