@@ -82,7 +82,8 @@
     if (hue > 1.0) {
         hue = hue - 1.0;
     }
-    UIColor *backgroundColor = [UIColor colorWithHue:hue saturation:1 brightness:0.3 alpha:1.0];
+    float saturation = percentCorrect;
+    UIColor *backgroundColor = [UIColor colorWithHue:self.favouriteHue saturation:saturation brightness:0.3 alpha:1.0];
     
     CGFloat duration = 0.0;
     if (animate)
