@@ -32,6 +32,7 @@
 		CE06AD5714D948BB00F44A6A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE06AD5514D948BB00F44A6A /* InfoPlist.strings */; };
 		CE06AD5A14D948BB00F44A6A /* EduAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE06AD5914D948BB00F44A6A /* EduAppTests.m */; };
 		CE06AD6914D94D9F00F44A6A /* CalculateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE06AD6814D94D9F00F44A6A /* CalculateViewController.m */; };
+		CE8F842B14DB320E00DFC8E6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8F842A14DB320E00DFC8E6 /* Default.png */; };
 		FBAFF95514D97301000D2981 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF95414D97301000D2981 /* Answer.m */; };
 		FBAFF95A14D97A0E000D2981 /* ColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF95814D97A0D000D2981 /* ColorPickerViewController.m */; };
 		FBAFF95B14D97A0E000D2981 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBAFF95914D97A0D000D2981 /* ColorPickerViewController.xib */; };
@@ -90,6 +91,7 @@
 		CE06AD5914D948BB00F44A6A /* EduAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EduAppTests.m; sourceTree = "<group>"; };
 		CE06AD6714D94D9F00F44A6A /* CalculateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculateViewController.h; sourceTree = "<group>"; };
 		CE06AD6814D94D9F00F44A6A /* CalculateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateViewController.m; sourceTree = "<group>"; };
+		CE8F842A14DB320E00DFC8E6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = EduApp/Default.png; sourceTree = "<group>"; };
 		FBAFF95314D97301000D2981 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
 		FBAFF95414D97301000D2981 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
 		FBAFF95714D97A0D000D2981 /* ColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerViewController.h; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		AE6E8E5E14DA92E400BDC82A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE8F842A14DB320E00DFC8E6 /* Default.png */,
 				AE6E8E5F14DA92F000BDC82A /* funny1.mp3 */,
 			);
 			name = Resources;
@@ -358,6 +361,7 @@
 				AE6E8E6014DA92F000BDC82A /* funny1.mp3 in Resources */,
 				60C9C72014DAA1030083CBDF /* GraphicalKeyboardController.xib in Resources */,
 				60C9C72614DAA5B30083CBDF /* ControlKeysKeyboardController.xib in Resources */,
+				CE8F842B14DB320E00DFC8E6 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
