@@ -59,8 +59,13 @@
     } else {
         percentCorrect = [self percentCorrectOfLast:5];
     }
-    float level = 1-percentCorrect;
-    [audio effectLevel:level * 100.0f];
+//    float level = 1-percentCorrect;
+//    [audio effectLevel:level * 100.0f];
+    
+    // we don't want complete standstill
+    float speed = percentCorrect>0?percentCorrect:0.1;
+    [audio speed:speed];
+    
 }
 
 -(void)updateColorsInView:(BOOL)animate

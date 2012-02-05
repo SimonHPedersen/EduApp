@@ -16,4 +16,6 @@
 
 - (void)effectLevel:(float) value;
 
+- (void)speed:(float)value;
+
 @end

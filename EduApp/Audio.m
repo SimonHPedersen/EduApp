@@ -19,7 +19,8 @@ typedef struct MyAUGraphPlayer
 	AUGraph graph;
 	AudioUnit fileAU;
     AudioUnit effectAU;
-	
+	AudioUnit speedAU;
+    
 } MyAUGraphPlayer;
 
 @implementation Audio {
@@ -83,7 +84,18 @@ void CreateMyAUGraph(MyAUGraphPlayer *player)
     AUNode effectNode;
     CheckError(AUGraphAddNode(player->graph, &effectcd, &effectNode),
                "AUGraphAddNode[kAudioUnitSubType_Distortion] failed");
-    
+
+    // varispeed
+    AudioComponentDescription speedcd = {0};
+    speedcd.componentType = kAudioUnitType_FormatConverter;
+    speedcd.componentSubType = kAudioUnitSubType_Varispeed;
+    speedcd.componentManufacturer = kAudioUnitManufacturer_Apple;
+
+    // add node with above desc
+    AUNode speedNode;
+    CheckError(AUGraphAddNode(player->graph, &speedcd, &speedNode), 
+               "AUGraphAddNode[varispeed] failed");
+
 	// generate description that will match a generator AU of type: audio file player
 	AudioComponentDescription fileplayercd = {0};
 	fileplayercd.componentType = kAudioUnitType_Generator;
@@ -104,24 +116,42 @@ void CreateMyAUGraph(MyAUGraphPlayer *player)
 	CheckError(AUGraphNodeInfo(player->graph, fileNode, NULL, &player->fileAU),
 			   "AUGraphNodeInfo failed");
 	
-	// connect the output source of the file player AU to the input source of the output node
-	CheckError(AUGraphConnectNodeInput(player->graph, fileNode, 0, effectNode, 0),
+	// connect the output source of the file player AU to the input source of the fx node
+	CheckError(AUGraphConnectNodeInput(player->graph, fileNode, 0, speedNode, 0),
 			   "AUGraphConnectNodeInput");
+
+//    CheckError(AUGraphConnectNodeInput(player->graph, effectNode, 0, outputNode, 0), "AIGraphConnectNodeInput");
 	
-	CheckError(AUGraphConnectNodeInput(player->graph, effectNode, 0, outputNode, 0),
+	CheckError(AUGraphConnectNodeInput(player->graph, speedNode, 0, outputNode, 0),
 			   "AUGraphConnectNodeInput");
-	
+
+    CheckError(AUGraphNodeInfo(player->graph, speedNode, NULL, &(player->speedAU)), 
+               "AUGraphNodeInfo failed");
+    
+    AudioUnit outputUnit;
+    CheckError(AUGraphNodeInfo(player->graph, outputNode, NULL, &outputUnit), 
+               "AUGraphNodeInfo failed");
+    
+    AudioUnit fileUnit;
+    CheckError(AUGraphNodeInfo(player->graph, fileNode, NULL, &fileUnit), 
+               "AUGraphNodeInfo failed");
+    
+    // Set the _output_ format of the VariSpeed to match the output format of the File Player
+    UInt32 propSize = sizeof(AudioStreamBasicDescription);
+    AudioStreamBasicDescription format = {0};
+    
+    AudioUnitGetProperty(fileUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, &format, &propSize);    
+    
+    AudioUnitSetProperty(player->speedAU, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, &format, propSize);
+    
 	// now initialize the graph (causes resources to be allocated)
 	CheckError(AUGraphInitialize(player->graph),
 			   "AUGraphInitialize failed");
     
     // configure effect
-//    AudioUnit effectUnit;
     CheckError(AUGraphNodeInfo(player->graph, effectNode, NULL, &(player->effectAU)), 
                "AUGraphNodeInfo failed");
     
-    //    AudioUnitSetParameter(effectUnit, kDistortionParam_Decimation, 0, 0, 0, 0);
-    //    AudioUnitSetParameter(effectUnit, kDistortionParam_DecimationMix, 0, 0, 0.0f, 0);
     AudioUnitSetParameter(player->effectAU, kDistortionParam_FinalMix, kAudioUnitScope_Global, 
                           0, 0.0f, 0);
     
@@ -244,8 +274,12 @@ static void startSound(void *userData)
 {
     AudioUnitSetParameter(_player->effectAU, kDistortionParam_FinalMix, kAudioUnitScope_Global, 
                           0, value, 0);
-    
+}
 
+- (void)speed:(float)value
+{
+    AudioUnitSetParameter(_player->speedAU,
+                          kVarispeedParam_PlaybackRate, kAudioUnitScope_Global, 0, value, 0);
 }
 
 @end
