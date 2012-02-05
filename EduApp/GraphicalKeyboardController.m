@@ -1,17 +1,20 @@
-#import "NumericalKeyboardController.h"
-@interface NumericalKeyboardController ()
-@property (strong, nonatomic) id<NumericKeyboardDelegate> numericKeyboardDelegate;
-@end
+//
+//  GraphicalKeyboardController.m
+//  EduApp
+//
+//  Created by Kari Rye Schougaard Nørgaard on 2/2/12.
+//  Copyright (c) 2012 Trifork. All rights reserved.
+//
 
+#import "GraphicalKeyboardController.h"
 
-@implementation NumericalKeyboardController
-@synthesize numericKeyboardDelegate;
+@implementation GraphicalKeyboardController
 
-- (id)initWithDelegate:(id<NumericKeyboardDelegate>)numericKeyboarDelegate
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nil bundle:nil];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.numericKeyboardDelegate = numericKeyboarDelegate;
+        // Custom initialization
     }
     return self;
 }
@@ -43,11 +46,6 @@
 {
     // Return YES for supported orientations
 	return YES;
-}
-
-- (IBAction)numberPressed:(id)sender {
-    UIButton *numberButton = (UIButton*) sender;
-    [numericKeyboardDelegate numberPressed:numberButton.titleLabel.text.integerValue];
 }
 
 @end

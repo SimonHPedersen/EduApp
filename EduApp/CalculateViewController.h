@@ -2,9 +2,10 @@
 #import "ColorPickerViewController.h"
 #import "Question.h"
 #import "NumericalKeyboardController.h"
+#import "ControlKeysKeyboardController.h"
 #import "LibraryConverter.h"
 
-@interface CalculateViewController : UIViewController<ColorPickerDelegate, NumericKeyboardDelegate,LibraryConverterDelegate> {
+@interface CalculateViewController : UIViewController<ColorPickerDelegate, NumericKeyboardDelegate, ControlKeysKeyboardDelegate, LibraryConverterDelegate> {
     
     __weak IBOutlet UILabel *problemLabel;
     __weak IBOutlet UILabel *equalsLabel;
