@@ -9,7 +9,8 @@
 #import "Audio.h"
 
 #include <AudioToolbox/AudioToolbox.h>
-#include <unistd.h> // for usleep()
+
+#define SPEED_STEP 0.05
 
 typedef struct MyAUGraphPlayer
 {
@@ -23,9 +24,11 @@ typedef struct MyAUGraphPlayer
     
 } MyAUGraphPlayer;
 
+
 @implementation Audio {
     MyAUGraphPlayer *_player;
     NSString *_songUrl;
+    float _speed;
 }
 
 void CreateMyAUGraph(MyAUGraphPlayer *player);
@@ -276,10 +279,34 @@ static void startSound(void *userData)
                           0, value, 0);
 }
 
-- (void)speed:(float)value
+- (void)speedRamp
 {
+    float current;
+    AudioUnitGetParameter(_player->speedAU, kVarispeedParam_PlaybackRate, kAudioUnitScope_Global, 0, &current);
+    float value;
+    if(current>_speed){
+        value=current-SPEED_STEP;
+    } else if(current<_speed){
+        value=current+SPEED_STEP;
+    } else {
+        value=_speed;
+    }
+    if(fabs(_speed-value)<SPEED_STEP){
+        value=_speed;
+    }
+//    NSLog(@"we want %f, we got %f, we set to %f",_speed,current,value);
     AudioUnitSetParameter(_player->speedAU,
                           kVarispeedParam_PlaybackRate, kAudioUnitScope_Global, 0, value, 0);
+    if(value!=_speed){
+        [self performSelector:@selector(speedRamp) withObject:nil afterDelay:0.1];
+    }
+}
+
+- (void)speed:(float)value
+{
+//    NSLog(@"%f",value);
+    _speed=value;
+    [self performSelector:@selector(speedRamp) withObject:nil afterDelay:0.1];
 }
 
 @end
