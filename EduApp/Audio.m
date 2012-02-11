@@ -283,21 +283,18 @@ static void startSound(void *userData)
 {
     float current;
     AudioUnitGetParameter(_player->speedAU, kVarispeedParam_PlaybackRate, kAudioUnitScope_Global, 0, &current);
-    float value;
     if(current>_speed){
-        value=current-SPEED_STEP;
+        current-=SPEED_STEP;
     } else if(current<_speed){
-        value=current+SPEED_STEP;
-    } else {
-        value=_speed;
+        current+=SPEED_STEP;
     }
-    if(fabs(_speed-value)<SPEED_STEP){
-        value=_speed;
+    if(fabs(_speed-current)<SPEED_STEP){
+        current=_speed;
     }
 //    NSLog(@"we want %f, we got %f, we set to %f",_speed,current,value);
     AudioUnitSetParameter(_player->speedAU,
-                          kVarispeedParam_PlaybackRate, kAudioUnitScope_Global, 0, value, 0);
-    if(value!=_speed){
+                          kVarispeedParam_PlaybackRate, kAudioUnitScope_Global, 0, current, 0);
+    if(current!=_speed){
         [self performSelector:@selector(speedRamp) withObject:nil afterDelay:0.1];
     }
 }
