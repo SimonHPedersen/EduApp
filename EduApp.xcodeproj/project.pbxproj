@@ -32,6 +32,8 @@
 		CE06AD5714D948BB00F44A6A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE06AD5514D948BB00F44A6A /* InfoPlist.strings */; };
 		CE06AD5A14D948BB00F44A6A /* EduAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE06AD5914D948BB00F44A6A /* EduAppTests.m */; };
 		CE06AD6914D94D9F00F44A6A /* CalculateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE06AD6814D94D9F00F44A6A /* CalculateViewController.m */; };
+		CE1D7BCF14EBF82F002D1537 /* button_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1D7BCD14EBF82F002D1537 /* button_cancel.png */; };
+		CE1D7BD014EBF82F002D1537 /* button_enter.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1D7BCE14EBF82F002D1537 /* button_enter.png */; };
 		CE8F842B14DB320E00DFC8E6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8F842A14DB320E00DFC8E6 /* Default.png */; };
 		FBAFF95514D97301000D2981 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF95414D97301000D2981 /* Answer.m */; };
 		FBAFF95A14D97A0E000D2981 /* ColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAFF95814D97A0D000D2981 /* ColorPickerViewController.m */; };
@@ -91,6 +93,8 @@
 		CE06AD5914D948BB00F44A6A /* EduAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EduAppTests.m; sourceTree = "<group>"; };
 		CE06AD6714D94D9F00F44A6A /* CalculateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculateViewController.h; sourceTree = "<group>"; };
 		CE06AD6814D94D9F00F44A6A /* CalculateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateViewController.m; sourceTree = "<group>"; };
+		CE1D7BCD14EBF82F002D1537 /* button_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_cancel.png; sourceTree = "<group>"; };
+		CE1D7BCE14EBF82F002D1537 /* button_enter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_enter.png; sourceTree = "<group>"; };
 		CE8F842A14DB320E00DFC8E6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = EduApp/Default.png; sourceTree = "<group>"; };
 		FBAFF95314D97301000D2981 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
 		FBAFF95414D97301000D2981 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 		AE6E8E5E14DA92E400BDC82A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D7BCD14EBF82F002D1537 /* button_cancel.png */,
+				CE1D7BCE14EBF82F002D1537 /* button_enter.png */,
 				CE8F842A14DB320E00DFC8E6 /* Default.png */,
 				AE6E8E5F14DA92F000BDC82A /* funny1.mp3 */,
 			);
@@ -362,6 +368,8 @@
 				60C9C72014DAA1030083CBDF /* GraphicalKeyboardController.xib in Resources */,
 				60C9C72614DAA5B30083CBDF /* ControlKeysKeyboardController.xib in Resources */,
 				CE8F842B14DB320E00DFC8E6 /* Default.png in Resources */,
+				CE1D7BCF14EBF82F002D1537 /* button_cancel.png in Resources */,
+				CE1D7BD014EBF82F002D1537 /* button_enter.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,10 +528,12 @@
 		CE06AD5F14D948BB00F44A6A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Trifork A/S";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EduApp/EduApp-Prefix.pch";
 				INFOPLIST_FILE = "EduApp/EduApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B1ECC450-D870-4502-9F31-FEBCB3689E90";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
