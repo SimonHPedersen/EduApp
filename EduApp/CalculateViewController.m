@@ -129,7 +129,7 @@
     self.numericKeyBoardController.view.frame = numericalKeyboardFrame;
     self.controlKeysKeyboardController = [[ControlKeysKeyboardController alloc] initWithDelegate:self];
     CGRect controlKeysKeyboardFrame = self.controlKeysKeyboardController.view.frame;
-    controlKeysKeyboardFrame = CGRectOffset(controlKeysKeyboardFrame, 1024 - controlKeysKeyboardFrame.size.width, 768 - numericalKeyboardFrame.size.height - controlKeysKeyboardFrame.size.height);
+    controlKeysKeyboardFrame = CGRectOffset(controlKeysKeyboardFrame, 1024 - controlKeysKeyboardFrame.size.width, 768 - controlKeysKeyboardFrame.size.height);
     self.controlKeysKeyboardController.view.frame = controlKeysKeyboardFrame;
     
     [self.view addSubview:self.numericKeyBoardController.view];
